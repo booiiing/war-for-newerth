@@ -1,0 +1,12 @@
+#labels Phase-Requirements,Phase-Design
+Index of requirements that the site will or should be having.
+
+Post here anything that you think the application will need in form of an abstract description, a sketch (diagram or handrawn) or any reasonable way of clearly expressing your ideas, trying to avoid technical details. Long items like sketches or samples should be in a separate page with a link and optionally an description here.
+
+----
+
+== Functional requirements ==
+
+
+
+== Non functional requirements ==
