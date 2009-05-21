@@ -13,6 +13,6 @@ _The system must have a way to let the users register themselves_:.
 
 == Non functional requirements ==
 Post here any requirements that have nothing to do with the things that the system should do itself. i.e.:
-_The system must be able to maintain track of all matches played, relationating them with the involved players_
+_The system must have a reasonable uptime_ (very bad example, think of anything that we can't implement ourselves like system conditions, client browser support, etc...)
 
 ----
