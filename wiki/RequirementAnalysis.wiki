@@ -3,10 +3,16 @@ Index of requirements that the site will or should be having.
 
 Post here anything that you think the application will need in form of an abstract description, a sketch (diagram or handrawn) or any reasonable way of clearly expressing your ideas, trying to avoid technical details. Long items like sketches or samples should be in a separate page with a link and optionally an description here.
 
-----
 
 == Functional requirements ==
+Post here requirements about the working of the site. i.e.:
+_The system must have a way to let the users register themselves_:.
 
 
+----
 
 == Non functional requirements ==
+Post here any requirements that have nothing to do with the things that the system should do itself. i.e.:
+_The system must be able to maintain track of all matches played, relationating them with the involved players_
+
+----
