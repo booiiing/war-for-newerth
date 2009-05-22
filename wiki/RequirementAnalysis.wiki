@@ -18,8 +18,16 @@ _The system must have a way to let the users register themselves_:.
     * choosing a target to attack
     * hinting players on how to set up a match
     * getting the results of a match (merc might provide us xml-data)
+  * alliance management:
+    * founding alliances (needs a partner)
+    * joinin alliances
+    * leaving alliances (only one member -> dissolved)
   * war/map management:
     * possibility to view the map (public)
+    * views:
+      * clan-territories
+      * territories of alliances
+      * ? beast/human territories (based on which side the owning clan played in the battle for this territory)
 
 ----
 
