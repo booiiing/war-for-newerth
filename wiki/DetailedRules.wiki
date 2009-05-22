@@ -1,0 +1,12 @@
+#summary Rules for the War and each Battle
+#labels Phase-Requirements,Phase-Design
+
+= Rules for the War =
+
+
+= Rules for each Battle =
+
+  * time for matches
+    * minimum time (to allow teams to prepare for the match)
+    * maximum time
+  * map-choice?
