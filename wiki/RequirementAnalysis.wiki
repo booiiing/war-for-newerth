@@ -8,6 +8,21 @@ Post here anything that you think the application will need in form of an abstra
 Post here requirements about the working of the site. i.e.:
 _The system must have a way to let the users register themselves_:.
 
+- user management:
+ - registering accounts
+ - changing details (password, etc)
+ - deleting accounts
+
+- clan management:
+ - "importing" a clan (script will check http://clan.savage2clans.com/roster.php and get all the members)
+
+- match management:
+ - choosing a target to attack
+ - hinting players on how to set up a match
+ - getting the results of a match (merc might provide us xml-data)
+
+- war/map management:
+ - possibility to view the map (public)
 
 ----
 
