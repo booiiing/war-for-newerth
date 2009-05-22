@@ -31,7 +31,9 @@ Post here any requirements that have nothing to do with the things that the syst
 _The system should recieve player stats and clan info from an official s2 source_ (think of anything that we can't implement ourselves like system conditions, client browser support, etc... but we will have to manage in some way)
 
 - we need an artist for the map (or maybe we get one from s2games?)
+
 - site-design/layout
+
 - connection to savage2-sites:
  - fetch results
  - fetch rosters
