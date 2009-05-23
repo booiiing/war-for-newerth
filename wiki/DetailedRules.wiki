@@ -8,5 +8,7 @@
 
   * time for matches
     * minimum time (to allow teams to prepare for the match)
+    Each match should be announced with enough time for both teams to prepare a roster.
     * maximum time
+    The attacked team can delay the match one week without a reason.
   * map-choice?
