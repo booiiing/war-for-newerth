@@ -1,0 +1,13 @@
+#summary Data model draft.
+#labels Phase-Design
+
+== Data model design ==
+
+Here we will describe the entities that will conform the data model.
+
+On the svn folder wiki/DataModel there is a [http://projects.gnome.org/dia/ Dia] diagram with the preliminary model that you can download and modify.
+
+
+The curren state of the model is
+
+http://war-for-newerth.googlecode.com/svn/wiki/DataModel/war-for-newerth-dm.png
