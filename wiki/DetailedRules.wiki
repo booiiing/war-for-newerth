@@ -3,14 +3,23 @@
 
 = Rules for the War =
 
+  * Attack frequency
+  Each clan can attack any territory with at least one side in common with a territory that they control, once per day.
+
+  * Simultaneous attacks
+  A Clan with more than one territory under attack can defer a match as much as one week between matches at their will, or an undefined amount of time if both, the attacker and the defender agree. The system must provide a mechanism to allow this communications between clans.
+
+  * Match deadline
+  Once a match is scheduled, any team must notify its absence at least two hours before the match. Failing to do this implies a free victory for the other team. The system must provide an automatic notification mechanism to remind clan managers to attend the match or notify their absence.
+
 
 = Rules for each Battle =
 
   * time for matches
     * minimum time (to allow teams to prepare for the match)
-    Each match should be announced with enough time for both teams to prepare a roster. This time starts to count after the attacked team recieves an attack notification.
+    Each match should be announced with enough time for both teams to prepare a roster (days?). This time starts to count after the attacked team recieves an attack notification.
     * maximum time
-    The attacked team will be able delay the match one week without a reason, for longer times both clans agree. The system must provide a mechanism to allow clan managers to comunicate this decisions to other clans.
+    The attacked team will be able delay the match for one week without agreement or for longer times if both clans agree. The system must provide a mechanism to allow clan managers to comunicate this decisions to other clans.
 
   * map-choice
   A fixed map will be choosen based on the territory being attacked.
