@@ -8,9 +8,9 @@
 
   * time for matches
     * minimum time (to allow teams to prepare for the match)
-    Each match should be announced with enough time for both teams to prepare a roster.
+    Each match should be announced with enough time for both teams to prepare a roster. This time starts to count after the attacked team recieves an attack notification.
     * maximum time
-    The attacked team can delay the match one week without a reason. The system must provide a mechanism to allow clan managers to comunicate this decisions.
+    The attacked team will be able delay the match one week without a reason, for longer times both clans agree. The system must provide a mechanism to allow clan managers to comunicate this decisions to other clans.
 
   * map-choice
   A fixed map will be choosen based on the territory being attacked.
