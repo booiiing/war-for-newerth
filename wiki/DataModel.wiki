@@ -17,14 +17,14 @@ We will define the following entities
   * *Clan*
   Defining a clan identified by the clan name and and tag. Might have other attributes in the future like personal clan webpage.
 
-  * Alliance
+  * *Alliance*
   Relationship between 0 or more _Clan_ s
 
-  * User
+  * *User*
   Each user of the system, registered by a login and a password. Each user will belong to a single _Clan_ .
 
-  * Territory
+  * *Territory*
   A territory on the map, defined by its shape (or some other geometry type) and the corresponding map name. Each territory belongs to one or none _Clan_ .
 
-  * Match
+  * *Match*
   A fight for a territory. Each match will belong to two or more (only 2 in practice) _Clan_ s, will have one or none _Clan_ as winner (depending on the number of games per match, we have to specify this), and a roster of _User_ s
