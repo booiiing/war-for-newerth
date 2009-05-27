@@ -1,11 +1,13 @@
 # == Schema Information
 # Schema version: 20090527195153
 #
-# Table name: clans
+# Table name: territories
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
-#  tag        :string(255)
+#  map_name   :string(255)
+#  shape      :string(255)
+#  clan_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
@@ -14,8 +16,12 @@
 
 one:
   name: MyString
-  tag: MyString
+  map_name: MyString
+  shape: MyString
+  clan_id: 1
 
 two:
   name: MyString
-  tag: MyString
+  map_name: MyString
+  shape: MyString
+  clan_id: 1

@@ -1,26 +1,23 @@
 # == Schema Information
 # Schema version: 20090527195153
 #
-# Table name: clans
+# Table name: alliances
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
-#  tag        :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe Clan do
+describe Alliance do
   before(:each) do
     @valid_attributes = {
-      :name => "value for name",
-      :tag => "value for tag"
     }
   end
 
   it "should create a new instance given valid attributes" do
-    Clan.create!(@valid_attributes)
+    Alliance.create!(@valid_attributes)
   end
 end

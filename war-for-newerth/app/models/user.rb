@@ -1,3 +1,21 @@
+# == Schema Information
+# Schema version: 20090527195153
+#
+# Table name: users
+#
+#  id                        :integer         not null, primary key
+#  login                     :string(40)
+#  name                      :string(100)     default("")
+#  email                     :string(100)
+#  crypted_password          :string(40)
+#  salt                      :string(40)
+#  created_at                :datetime
+#  updated_at                :datetime
+#  remember_token            :string(40)
+#  remember_token_expires_at :datetime
+#  clan_id                   :integer
+#
+
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
@@ -6,6 +24,7 @@ class User < ActiveRecord::Base
   include Authentication::ByCookieToken
 
   belongs_to :clan
+  has_and_belongs_to_many :matches
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40

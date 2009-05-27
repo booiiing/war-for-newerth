@@ -1,26 +1,30 @@
 # == Schema Information
 # Schema version: 20090527195153
 #
-# Table name: clans
+# Table name: territories
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
-#  tag        :string(255)
+#  map_name   :string(255)
+#  shape      :string(255)
+#  clan_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe Clan do
+describe Territory do
   before(:each) do
     @valid_attributes = {
       :name => "value for name",
-      :tag => "value for tag"
+      :map_name => "value for map_name",
+      :shape => "value for shape",
+      :clan_id => 1
     }
   end
 
   it "should create a new instance given valid attributes" do
-    Clan.create!(@valid_attributes)
+    Territory.create!(@valid_attributes)
   end
 end
