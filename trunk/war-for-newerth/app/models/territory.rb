@@ -1,18 +1,17 @@
 # == Schema Information
 # Schema version: 20090527195153
 #
-# Table name: clans
+# Table name: territories
 #
 #  id         :integer         not null, primary key
 #  name       :string(255)
-#  tag        :string(255)
+#  map_name   :string(255)
+#  shape      :string(255)
+#  clan_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Clan < ActiveRecord::Base
-  has_many :users
-  has_many :territories
-  has_and_belongs_to_many :alliances
-  
+class Territory < ActiveRecord::Base
+  belongs_to :clan
 end

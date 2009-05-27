@@ -9,11 +9,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090527174941) do
+ActiveRecord::Schema.define(:version => 20090527195153) do
+
+  create_table "alliances", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clans", :force => true do |t|
     t.string   "name"
     t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "clans_alliances", :id => false, :force => true do |t|
+    t.integer "clan_id"
+    t.integer "alliance_id"
+  end
+
+  create_table "matches", :force => true do |t|
+    t.datetime "schedule"
+    t.integer  "attacker_id"
+    t.integer  "defender_id"
+    t.integer  "winner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "territories", :force => true do |t|
+    t.string   "name"
+    t.string   "map_name"
+    t.string   "shape"
+    t.integer  "clan_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,5 +61,10 @@ ActiveRecord::Schema.define(:version => 20090527174941) do
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+
+  create_table "users_matches", :force => true do |t|
+    t.integer "match_id"
+    t.integer "user_id"
+  end
 
 end
