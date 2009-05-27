@@ -4,27 +4,23 @@
 = Rules for the War =
 
   * Attack frequency
-  Each clan can attack any territory with at least one side in common with a territory that they control, once per day.
-_Each clan have only 1 round to defend/attack the ground but, they should have a chance to fight it back. We have to implement a comeback system that will allow to fight this territory abck within a hour(?)_
+  Each clan can attack any territory with at least one side in common with a territory that they control, once per day. Each clan have only 1 round to defend/attack the ground but, they should have a chance to fight it back. We have to implement a comeback system that will allow to fight this territory abck within a hour.
 
   * Simultaneous attacks
   A Clan with more than one territory under attack can defer a match as much as one week between matches at their will, or an undefined amount of time if both, the attacker and the defender agree. The system must provide a mechanism to allow this communications between clans.
-_Explanation?_
 
 
   * Match deadline
   Once a match is scheduled, any team must notify its absence at least two hours before the match. Failing to do this implies a free victory for the other team. The system must provide an automatic notification mechanism to remind clan managers to attend the match or notify their absence.
-_The curent clan system will notify clan under attack before the match ingame (a popup window will appear) so no need to notify. Ofcourse every clan should notify players on their forums, etc... But we should have a notification at F4T site too._
 
 = Rules for each Battle =
 
   * time for matches
     * minimum time (to allow teams to prepare for the match)
     Each match should be announced with enough time for both teams to prepare a roster (days?). This time starts to count after the attacked team recieves an attack notification.
-_Read ^_ 
+
     * maximum time
     The attacked team will be able delay the match for one week without agreement or for longer times if both clans agree. The system must provide a mechanism to allow clan managers to comunicate this decisions to other clans.
-_No no no! It's like a real war, u not appear to defend your territory - you loose..._
+
   * map-choice
   A fixed map will be choosen based on the territory being attacked.
-_why?_
