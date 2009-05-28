@@ -1,0 +1,13 @@
+#labels Phase-Design
+#Information architecture decisions and design of the site.
+
+== General design / examples ==
+How the site should look?.
+
+
+== Use cases / sections ==
+Sections and what will they be used for.
+
+
+== Content ==
+Graphics, style examples and all the beautifull things.
