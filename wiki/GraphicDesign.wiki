@@ -1,5 +1,5 @@
+#summary Information architecture decisions and design of the site.
 #labels Phase-Design
-#Information architecture decisions and design of the site.
 
 == General design / examples ==
 How the site should look?.
