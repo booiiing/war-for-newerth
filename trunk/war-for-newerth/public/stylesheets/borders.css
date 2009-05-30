@@ -1,0 +1,17 @@
+/* 
+    Document   : borders.css
+    Created on : 30-may-2009, 19:32:31
+    Author     : flx
+    Description:
+        Style for the bordered pannels, to use with the border function on application helper.
+*/
+
+.border3 {padding: 15px; background: none;}
+.border3-top { background: url('/images/border03_top.png') repeat-x top center; }
+.border3-bottom { background: url('/images/border03_bottom.png') repeat-x bottom center; }
+.border3-left { background: url('/images/border03_left.png') repeat-y left center; }
+.border3-right { background: url('/images/border03_right.png') repeat-y right center; }
+.border3-top-left { background: url('/images/border03_topleft.png') no-repeat top left; }
+.border3-top-right { background: url('/images/border03_topright.png') no-repeat top right; }
+.border3-bottom-left { background: url('/images/border03_bottomleft.png') no-repeat bottom left; }
+.border3-bottom-right { background: url('/images/border03_bottomright.png') no-repeat bottom right; }
