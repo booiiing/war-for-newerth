@@ -1,5 +1,7 @@
+<% content_for :title do %>Singup<% end %>
+<% crumbs 'Sing up'=> new_user_path %>
 <p>Start your journey in this <%= link_to "gaming community", :root %>.</p>
-<div id="singup-zone">
+<div class="small-zone">
   <h3>Sign up as a new user</h3>
   <% border do %>
     <% @user.password = @user.password_confirmation = nil %>

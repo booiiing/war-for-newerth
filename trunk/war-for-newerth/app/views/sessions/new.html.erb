@@ -1,5 +1,7 @@
+<% content_for :title do %>Login<% end %>
+<% crumbs 'login' => new_session_path %>
 <p>Wellcome back to <%= link_to "War For Newerth", :root %>.</p>
-<div id="login-zone">
+<div class="small-zone">
 <h4>Login</h4 >
   <% border do %>
     <% form_tag session_path do -%>
