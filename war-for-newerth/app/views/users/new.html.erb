@@ -3,7 +3,7 @@
 <p>Start your journey in this <%= link_to "gaming community", :root %>.</p>
 <div class="small-zone">
   <h3>Sign up as a new user</h3>
-  <% border do %>
+  <% border 'border3' do %>
     <% @user.password = @user.password_confirmation = nil %>
 
     <%= error_messages_for :user %>

@@ -76,7 +76,7 @@ div#user-bar a {
 div#user-bar a:visited { color: #fafafa; }
 div#user-bar a:hover { color: #fa0a0a; }
 
-span#crumbs { margin-left: 50px; }
+span#crumbs { margin-left: 25px; }
 span#crumbs a:hover, span#crumbs a:visited:hover { color: #a0a0f0; }
 
 div#user-bar-greeting {
