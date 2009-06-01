@@ -8,7 +8,7 @@
 = Details =
 
 == Stage 1. The Tribes: ==
-   World of Newerth is devided in a lot of small pieces, small tribes(clans) controlling territories. Once a while they fight each-other to gain control of new territories. This implemented as clan-wars(CW), as we know it today. On the site of w4t clan X chooses to attack their neigberhood clan Y. Clan X choose 3 options of an area they want to attack and time. Clan X sending request to clan Y. Clan Y accept their fight while select one of the times and maps from X's list, also clan Y choose which side they gonna fight. On the day of the fight clans reciving in-game notification 2 hours before the fight. Well, it's all exactly the way we know it today. Only difference is the win/loose report on clan system will change the clan allocation on Newerth map. 
+   World of Newerth is devided in a lot of small pieces, small tribes(clans) controlling territories. Once a while they fight each-other to gain control of new territories. This implemented as clan-wars(CW), as we know it today. On the site of w4t clan X chooses to attack their neigberhood clan Y. Clan X choose 3 options of an area they want to attack and time.  Clan X sending request to clan Y. Clan Y accept their fight while select one of the times and maps from X's list, also clan Y choose which side they gonna fight. On the day of the fight clans reciving in-game notification 2 hours before the fight. Well, it's all exactly the way we know it today. Only difference is the win/loose report on clan system will change the clan allocation on Newerth map. 
  Now about the map; The map could be static and already divided in territories. That means that clans will receive a territory at the beginning from where they'll be able to expand. The only trouble we can encounter here is amount of clans. We won't be able to enlarge the territories in any way. Second idea of the map is dynamic map, which means that we will add new pieces of the map as needed. The good thing - almost unlimited space. Third idea for map: Fully virtual map, nothing to draw so no place limitation. The bad thing - virtual territory will still virtual without "color" of the clan on it, that's not exactly the territory u can fight for. 
 === Prerequests: ===
  Us: Registration, DB, dynamic map system(imo we should go for the second map style). 
@@ -24,3 +24,21 @@
 
 == Stage 3. The Gathering: ==
    This is a little bit crazy idea and might not work :) I'm sticking up with the original history of Newerth and here is the point when Maliken comes. He gathering all men of Newerth into a Legion of man blablabla. --------------------------------------------later-------------------
+
+
+----
+Fight schema: Idea for "last ground" fight.
+Original clansystem is good for the "regular" fights.
+But, in fight for territories clans should and will claim grounds that already belongs to another clans. In case of clan attacking another clan which have the last piece of grounds the fight shouldn't be so easy as fights before (1 map for CW). The attacking clan will have to attack the enemy on custom maps, and the CW will be 3 rounds.
+(that reminds me that we need a mapmakers)
+The idea here is 3 maps which represent a path to main SH on the last piece of ground. The first and second maps could be original, but the third one is mod in which the main point for attackers is to destroy the HS with lack of resources but with more advanced tech from begining of the round.Defenders should defend their base for some amount of time, like 30 minutes or destroying enemies. 
+
+Here we getting some different situations.
+  # Attackers win all rounds - win.
+  # Attackers wins first/second round + destroying SH - win
+  # Attackers wins first/second round but kicked from SH - loose
+  # Attackers loose both rounds but win SH - noone gets nothing.
+  # Attackers loose 2 rounds loosing at SH - The kicked out of enemy grounds and loose the territory they were attacked from.
+  # Attackers loose both fights and loosing their SH (that shouldn't be easy to defenders) - They loose the ground they attacked from + one of the territories near.
+
+That's way it'll be harder to kick clans out of their grounds, but keep it still possible.
