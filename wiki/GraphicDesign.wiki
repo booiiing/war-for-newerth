@@ -13,3 +13,5 @@ Sections and what will they be used for.
 Graphics, style examples and all the beautifull things.
 
 savage2-fansite-kit: http://savage2.com/en/fansitekit.php
+
+a map-generator (until we get a real map): http://greenfish.extra.hu/downloads.php
