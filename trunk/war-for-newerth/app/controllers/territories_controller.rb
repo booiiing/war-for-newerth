@@ -34,7 +34,7 @@ class TerritoriesController < ApplicationController
 
   # GET /territories/1/edit
   def edit
-    @territory = Territory.find(params[:id])
+    
   end
 
   # POST /territories
