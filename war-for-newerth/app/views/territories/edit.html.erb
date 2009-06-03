@@ -1,12 +1,30 @@
-<h1>Editing territory</h1>
+<% crumbs 'Edit territories' => edit_territory_path %>
+<% content_for(:title, 'Edit territories') %>
 
-<% form_for(@territory) do |f| %>
-  <%= f.error_messages %>
+<div id="territories-toos">
+  <% border 'border3' do %>
+      <div id="tools-form-container">
+        <p>Select a territory from the list to edit it, or create a new one.</p>
+      </div>
+  <% end %>
+</div>
+<div id="map-container" >
+  <% border 'border4' do %>
+    <canvas id="canvas" width="400" height="250"></canvas>
+  <% end %>
+  <%= image_tag 'cc_panel_bottom.png', :id => 'map-bottom'%>
+</div>
+<div id="territories-edit-list" style="width:550px">
+  <% border 'border3' do %>
+    <div style="text-align:right;">
+      <%= link_to_remote 'New territory',
+                         :url => {:controller => :territories, :action => :create},
+                         :update => {:success => 'territories-list'}%>
+    </div>
+    <div id="territories-list">
+      <%= render :partial => 'list', :locals => {:territories => @territories} %>
+    </div>
+  <% end %>
+</div>
 
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @territory %> |
-<%= link_to 'Back', territories_path %>
+<%= link_to 'Back', territory_path %>

@@ -15,3 +15,13 @@
 .border3-top-right { background: url('/images/border03_topright.png') no-repeat top right; }
 .border3-bottom-left { background: url('/images/border03_bottomleft.png') no-repeat bottom left; }
 .border3-bottom-right { background: url('/images/border03_bottomright.png') no-repeat bottom right; }
+
+.border4 {padding: 18px; background: none;}
+.border4-top { background: url('/images/border04_top.png') repeat-x top center; }
+.border4-bottom { background: url('/images/border04_bottom.png') repeat-x bottom center; }
+.border4-left { background: url('/images/border04_left.png') repeat-y left center; }
+.border4-right { background: url('/images/border04_right.png') repeat-y right center; }
+.border4-top-left { background: url('/images/border04_topleft.png') no-repeat top left; }
+.border4-top-right { background: url('/images/border04_topright.png') no-repeat top right; }
+.border4-bottom-left { background: url('/images/border04_bottomleft.png') no-repeat bottom left; }
+.border4-bottom-right { background: url('/images/border04_bottomright.png') no-repeat bottom right; }

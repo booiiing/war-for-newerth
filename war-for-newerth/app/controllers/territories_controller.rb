@@ -34,7 +34,8 @@ class TerritoriesController < ApplicationController
 
   # GET /territories/1/edit
   def edit
-    
+    @territories = Territory.find :all
+    respond_to { |format| format.html }
   end
 
   # POST /territories
@@ -44,12 +45,19 @@ class TerritoriesController < ApplicationController
 
     respond_to do |format|
       if @territory.save
-        flash[:notice] = 'Territory was successfully created.'
-        format.html { redirect_to(@territory) }
+        format.html do
+          flash[:notice] = 'Territory was successfully created.'
+          redirect_to(@territory)
+        end
         format.xml  { render :xml => @territory, :status => :created, :location => @territory }
+        format.js do
+          @territories = Territory.find :all;
+          render :partial => 'list', :locals => {:territories => @territories}
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @territory.errors, :status => :unprocessable_entity }
+        format.js {}
       end
     end
   end
