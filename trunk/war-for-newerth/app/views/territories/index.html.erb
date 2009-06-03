@@ -1,8 +1,8 @@
-<% content_for :title do %>Wellcome<% end %>
+<% content_for :title , 'Wellcome' %>
 <% crumbs %>
 <% border 'border3' do %>
   <p>
     <%= image_tag 'rails.png' %>
   </p>
-  <%= link_to 'edit' %>
+  <%= link_to 'edit', edit_territory_path %>
 <% end %>

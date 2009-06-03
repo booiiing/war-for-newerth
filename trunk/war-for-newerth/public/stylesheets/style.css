@@ -57,7 +57,7 @@ a:visited:hover { color: #666; }
 
 .small-zone {
     width: 400px;
-    margin: 100px auto 0px auto;
+    margin: 50px auto 0px auto;
 }
 
 div#user-bar {
@@ -91,7 +91,18 @@ div#user-bar-action {
 }
 
 div#content {
-    width: 800px;
+    width: 1000px;
     margin: 0px auto;
     padding:12px;
+}
+
+div#map-container{
+    text-align: center;
+    float:right;
+}
+
+img#map-bottom { margin-top: -30px; }
+
+div#territories-list li {
+    list-style: none;
 }
