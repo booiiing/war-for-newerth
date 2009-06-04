@@ -7,7 +7,7 @@
   <script type="text/javascript">
     var territories = [];
     var current_territory = false;
-    var g_vertices = [];
+    var dragging=false;
     <%  @territories.each do |t| -%>
       <%if(t.position_x and t.position_y) -%>
         territories[<%= t.id %>] = new Vertex(<%= "#{t.position_x}, #{t.position_y}" %>);
@@ -18,14 +18,20 @@
       var cx = (e.clientX - e.currentTarget.offsetLeft + pageXOffset);
       var cy = (e.clientY - e.currentTarget.offsetTop + pageYOffset);
 
-      if(current_territory) {
+      if(current_territory && dragging) {
         territories[current_territory] = new Vertex(cx, cy);
       }
       renderTerritories( $('canvas'), territories );
     }
 
+    function down(e){ dragging=true; }
+    function up(e){ dragging=false; }
+
     Event.observe(window, 'load', function() {
+      Event.observe($('canvas'), 'mousedown', down);
+      Event.observe($('canvas'), 'mouseup', up);
       Event.observe($('canvas'), 'click', click);
+      Event.observe($('canvas'), 'mousemove', click);
       renderTerritories($('canvas'), territories );
     });
 
