@@ -1,0 +1,11 @@
+<% remote_form_for territory do |f| %>
+  <div>
+    <%= f.label :name  %>
+    <%= f.text_field :name, :value => territory.name || "New territory ##{territory.id}" %>
+  </div>
+  <div>
+    <%= f.label :map_name  %>
+    <%= f.text_field :map_name %>
+  </div>
+
+<% end %>

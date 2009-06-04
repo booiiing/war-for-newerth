@@ -103,6 +103,14 @@ div#map-container{
 
 img#map-bottom { margin-top: -30px; }
 
-div#territories-list li {
-    list-style: none;
-}
+div#territories-list li { margin: 10px; list-style-image: url(/images/plus_up.png); }
+div#territories-list li:hover { list-style: none; list-style-image: url(/images/plus_down.png); }
+div#territories-list li.active { list-style: none; list-style-image: url(/images/plus_over.png); }
+
+
+
+
+
+
+
+
