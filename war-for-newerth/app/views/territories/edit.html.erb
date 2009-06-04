@@ -1,5 +1,36 @@
 <% crumbs 'Edit territories' => edit_territory_path %>
 <% content_for(:title, 'Edit territories') %>
+<% content_for(:head, javascript_include_tag('delaunay.js')) %>
+<% content_for(:head, javascript_include_tag('voronoi.js')) %>
+<% content_for(:head, javascript_include_tag('mapEditor.js')) %>
+<% content_for(:head) do %>
+  <script type="text/javascript">
+    var territories = [];
+    var current_territory = false;
+    var g_vertices = [];
+    <%  @territories.each do |t| -%>
+      <%if(t.position_x and t.position_y) -%>
+        territories[<%= t.id %>] = new Vertex(<%= "#{t.position_x}, #{t.position_y}" %>);
+      <% end -%>
+    <% end -%>
+
+    function click(e){
+      var cx = (e.clientX - e.currentTarget.offsetLeft + pageXOffset);
+      var cy = (e.clientY - e.currentTarget.offsetTop + pageYOffset);
+
+      if(current_territory) {
+        territories[current_territory] = new Vertex(cx, cy);
+      }
+      renderTerritories( $('canvas'), territories );
+    }
+
+    Event.observe(window, 'load', function() {
+      Event.observe($('canvas'), 'click', click);
+      renderTerritories($('canvas'), territories );
+    });
+
+  </script>
+<% end %>
 
 <div id="territories-toos">
   <% border 'border3' do %>
@@ -10,7 +41,7 @@
 </div>
 <div id="map-container" >
   <% border 'border4' do %>
-    <canvas id="canvas" width="400" height="250"></canvas>
+    <canvas id="canvas" width="400" height="250" ></canvas>
   <% end %>
   <%= image_tag 'cc_panel_bottom.png', :id => 'map-bottom'%>
 </div>

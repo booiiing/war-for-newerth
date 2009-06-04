@@ -1,0 +1,7 @@
+<ul>
+<% territories.each do |t| %>
+  <li id="select-<%= t.id %>" >
+    <%= link_to_function "#{t.name || "New territory #"+t.id.to_s }", set_selected_edit_territory(t) %>
+  </li>
+<% end %>
+</ul>

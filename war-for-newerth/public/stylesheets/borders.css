@@ -6,7 +6,7 @@
         Style for the bordered pannels, to use with the border function on application helper.
 */
 
-.border3 {padding: 15px; background: none;}
+.border3 {padding: 15px; margin: 15px; background: none;}
 .border3-top { background: url('/images/border03_top.png') repeat-x top center; }
 .border3-bottom { background: url('/images/border03_bottom.png') repeat-x bottom center; }
 .border3-left { background: url('/images/border03_left.png') repeat-y left center; }
