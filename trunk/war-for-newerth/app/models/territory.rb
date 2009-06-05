@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090527195153
+# Schema version: 20090604162055
 #
 # Table name: territories
 #
@@ -10,6 +10,8 @@
 #  clan_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  position_x :float
+#  position_y :float
 #
 
 class Territory < ActiveRecord::Base

@@ -1,5 +1,7 @@
 <ul>
 <% territories.each do |t| %>
+  <%= link_to_remote "[delete]", { :url => { :action => "destroy", :id => t.id } },
+                                 { :style => 'float:right' } %>
   <li id="select-<%= t.id %>" >
     <%= link_to_function "#{t.name || "New territory #"+t.id.to_s }", set_selected_edit_territory(t) %>
   </li>

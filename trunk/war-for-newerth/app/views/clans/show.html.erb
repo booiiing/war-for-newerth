@@ -1,13 +1,27 @@
+<% crumbs "Show Clan information: #{@clan.name}" => clan_path(@clan) %>
+<% content_for(:title, 'Edit territories') %>
 <p>
   <b>Name:</b>
-  <%=h @clan.name %>
+  <%=h @clan.name %> [<%=h @clan.tag %>]
 </p>
-
 <p>
-  <b>Tag:</b>
-  <%=h @clan.tag %>
-</p>
+  <b>Territories:</b>
+  <ul>
+  <% @clan.territories.each do |t| %>
+    <li><%=h t.name  %></li>
+  <% end %>
+  </ul>
 
+</p>
+<p>
+  <b>Members:</b>
+  <ul>
+  <% @clan.users.each do |u| %>
+    <li><%=h u.login  %></li>
+  <% end %>
+  </ul>
+
+</p>
 
 <%= link_to 'Edit', edit_clan_path(@clan) %> |
 <%= link_to 'Back', clans_path %>

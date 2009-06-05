@@ -14,24 +14,43 @@
       <% end -%>
     <% end -%>
 
-    function click(e){
+    function click(e) {
       var cx = (e.clientX - e.currentTarget.offsetLeft + pageXOffset);
       var cy = (e.clientY - e.currentTarget.offsetTop + pageYOffset);
 
+      if(!dragging){
+        for( var t = 0; t < territories.length; t++ ) {
+          if(territories[t]){
+            var dx = (territories[t].x - cx);
+            var dy = (territories[t].y - cy);
+            if((dx*dx + dy*dy) < 64 ) {
+              $$('#select-'+ t +" a")[0].onclick();
+            }
+          }
+        }
+      } else {
+        dragging = false;
+        $('territory_position_x').value = cx;
+        $('territory_position_y').value = cy;
+        $('territory_shape').value = getVoronoiPath(territories[current_territory], triangle_cache);
+      }
+
+      renderTerritories( $('canvas'), territories );
+    }
+
+    function move(e){
+      var cx = (e.clientX - e.currentTarget.offsetLeft + pageXOffset);
+      var cy = (e.clientY - e.currentTarget.offsetTop + pageYOffset);
+      
       if(current_territory && dragging) {
         territories[current_territory] = new Vertex(cx, cy);
       }
       renderTerritories( $('canvas'), territories );
     }
 
-    function down(e){ dragging=true; }
-    function up(e){ dragging=false; }
-
     Event.observe(window, 'load', function() {
-      Event.observe($('canvas'), 'mousedown', down);
-      Event.observe($('canvas'), 'mouseup', up);
       Event.observe($('canvas'), 'click', click);
-      Event.observe($('canvas'), 'mousemove', click);
+      Event.observe($('canvas'), 'mousemove', move);
       renderTerritories($('canvas'), territories );
     });
 
@@ -47,11 +66,11 @@
 </div>
 <div id="map-container" >
   <% border 'border4' do %>
-    <canvas id="canvas" width="400" height="250" ></canvas>
+    <canvas id="canvas" width="500" height="350" ></canvas>
   <% end %>
   <%= image_tag 'cc_panel_bottom.png', :id => 'map-bottom'%>
 </div>
-<div id="territories-edit-list" style="width:550px">
+<div id="territories-edit-list" >
   <% border 'border3' do %>
     <div style="text-align:right;">
       <%= link_to_remote 'New territory',
@@ -63,5 +82,3 @@
     </div>
   <% end %>
 </div>
-
-<%= link_to 'Back', territory_path %>
