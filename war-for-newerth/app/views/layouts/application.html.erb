@@ -9,6 +9,7 @@
   <%= stylesheet_link_tag 'style' %>
   <%= stylesheet_link_tag 'borders' %>
   <%= javascript_include_tag 'prototype' %>
+  <%= javascript_include_tag 'effects' %>
   
   <%= yield :head %>
 </head>
@@ -16,6 +17,7 @@
   <div id="user-bar">
     <%= render :partial => 'users/user_bar' %>
   </div>
+  <div id="notification-area"></div>
   <div id="content">
     <p style="color: green"><%= flash[:notice] %></p>
     <%= yield %>

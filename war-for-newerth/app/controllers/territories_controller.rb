@@ -66,15 +66,29 @@ class TerritoriesController < ApplicationController
   # PUT /territories/1.xml
   def update
     @territory = Territory.find(params[:id])
-
+    
     respond_to do |format|
       if @territory.update_attributes(params[:territory])
-        flash[:notice] = 'Territory was successfully updated.'
-        format.html { redirect_to(@territory) }
+        format.html do
+          flash[:notice] = 'Territory was successfully updated.'
+          redirect_to(@territory)
+        end
         format.xml  { head :ok }
+        format.js do
+          render :update do |page|
+            page << notify_msg("The territory was updated!")
+            page['territories-list'].replace_html render(:partial => 'list',
+                                                         :locals => {:territories => Territory.find(:all)})
+          end
+        end
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @territory.errors, :status => :unprocessable_entity }
+        format.js do
+          render :update do |page|
+            page << notify_error("The territory could not be updated!");
+          end
+        end
       end
     end
   end
@@ -88,6 +102,14 @@ class TerritoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(territories_url) }
       format.xml  { head :ok }
+      format.js do
+        render :update do |page|
+          page << notify_msg("Territory deleted!")
+          page['territories-list'].replace_html render(:partial => 'list',
+                                                       :locals => {:territories => Territory.find(:all)})
+          page << "delete territories[#{@territory.id}];renderTerritories( $('canvas'), territories );"
+        end
+      end
     end
   end
 end

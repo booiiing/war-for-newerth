@@ -55,10 +55,21 @@ a:visited:hover { color: #666; }
   list-style: square;
 }
 
+#notification-area p {
+    padding-left: 100px;
+    margin: 0px;
+    font-size: large;
+}
+.notification { color: green; }
+.error { color: red; }
+
 .small-zone {
     width: 400px;
     margin: 50px auto 0px auto;
 }
+
+.labeled-field * { margin: 2px; }
+.labeled-field label { display: inline-block; width: 100px }
 
 div#user-bar {
     background: transparent url('/images/container_center.png') center center repeat-x;
@@ -101,12 +112,22 @@ div#map-container{
     float:right;
 }
 
-img#map-bottom { margin-top: -30px; }
+img#map-bottom { margin-top: -30px; border:none; }
 
+input#territory_submit {
+    float:right;
+    background: url(/images/border02_noalpha.png) center center no-repeat;
+    border:medium none;
+    color:silver;
+    padding:5px;
+    width: 102px;
+}
+
+div#territories-edit-list { width: 450px; }
 div#territories-list li { margin: 10px; list-style-image: url(/images/plus_up.png); }
 div#territories-list li:hover { list-style: none; list-style-image: url(/images/plus_down.png); }
 div#territories-list li.active { list-style: none; list-style-image: url(/images/plus_over.png); }
-
+div#territories-list li.active a { color: #007f00; }
 
 
 

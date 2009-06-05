@@ -1,3 +1,19 @@
+# == Schema Information
+# Schema version: 20090604162055
+#
+# Table name: territories
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  map_name   :string(255)
+#  shape      :string(255)
+#  clan_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  position_x :float
+#  position_y :float
+#
+
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 # one:

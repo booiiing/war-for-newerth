@@ -36,4 +36,27 @@ module ApplicationHelper
     end
   end
 
+  #
+  # Display a notification message for a short time
+  #
+  def notify_msg message, time=3
+    _notify(message, time, 'notification')
+  end
+  #
+  # Display an error message for a short time
+  #
+  def notify_error message, time=3
+    _notify(message, time, 'error')
+  end
+
+  protected
+
+  def _notify message, time, style
+    t = visual_effect(:appear, 'notification-area') +";"
+    t << "$('notification-area').innerHTML='<p class=\"#{style}\">#{message}</p>';"
+    t << visual_effect(:pulsate, 'notification-area', :pulses => 2, :duration => 1) +";"
+    t << visual_effect(:fade, 'notification-area', :delay => time)
+    t
+  end
+
 end
