@@ -1,8 +1,16 @@
 #summary Information architecture decisions and design of the site.
 #labels Phase-Design
 
+== Current state ==
+
+There is a prelimiary version uploaded at http://xflx.gf-soft.net/ keep in mind that it's on its early stages of development and expect it to fail, be ugly or dont working at all.
+
 == General design / examples ==
 How the site should look?.
+
+A savage 2 league site: http://www.coilonline.org/
+
+The s2 clan site: http://www.savage2clans.com/
 
 
 == Use cases / sections ==
