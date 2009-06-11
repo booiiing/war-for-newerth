@@ -1,4 +1,4 @@
-<% crumbs 'Edit territories' => edit_territory_path %>
+<% crumbs 'Edit territories' => edit_territories_path %>
 <% content_for(:title, 'Edit territories') %>
 <% content_for(:head, javascript_include_tag('delaunay.js')) %>
 <% content_for(:head, javascript_include_tag('voronoi.js')) %>
@@ -6,35 +6,47 @@
 <% content_for(:head) do %>
   <script type="text/javascript">
     var territories = [];
+    var territory_colors  = [];
     var current_territory = false;
     var dragging=false;
     <%  @territories.each do |t| -%>
       <%if(t.position_x and t.position_y) -%>
         territories[<%= t.id %>] = new Vertex(<%= "#{t.position_x}, #{t.position_y}" %>);
+        <%if(t.clan ) -%>
+        territory_colors[<%= t.id %>] = [<%= t.clan.color_rgb.join(',') %>];
+        <% end -%>
       <% end -%>
     <% end -%>
 
     function click(e) {
       var cx = (e.clientX - e.currentTarget.offsetLeft + pageXOffset);
       var cy = (e.clientY - e.currentTarget.offsetTop + pageYOffset);
-
-      if(!dragging){
-        for( var t = 0; t < territories.length; t++ ) {
-          if(territories[t]){
-            var dx = (territories[t].x - cx);
-            var dy = (territories[t].y - cy);
+      var one_near = false;
+      var was_dragging = dragging;
+      for( var t = 0; t < territories.length; t++ ) {
+        if(territories[t]){
+          var dx = (territories[t].x - cx);
+          var dy = (territories[t].y - cy);
+          if(!dragging){
             if((dx*dx + dy*dy) < 64 ) {
               $$('#select-'+ t +" a")[0].onclick();
+              dragging = true;
+            }
+          } else {
+            if(t != current_territory && (dx*dx + dy*dy) < 64 ) {
+              one_near = true
+              break;
             }
           }
         }
-      } else {
-        dragging = false;
+      }
+      if (was_dragging && !one_near) {
         $('territory_position_x').value = cx;
         $('territory_position_y').value = cy;
-        $('territory_shape').value = getVoronoiPath(territories[current_territory], triangle_cache);
+        updatePaths(territories);
+        <%#*$('territory_shape').value = getVoronoiPath(territories[current_territory], triangle_cache);%>
+        dragging = false;
       }
-
       renderTerritories( $('canvas'), territories );
     }
 

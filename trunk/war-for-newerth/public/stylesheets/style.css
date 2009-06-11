@@ -19,6 +19,10 @@ a { color: silver; text-decoration: none; font-weight: bold;}
 a:hover { }
 a:visited:hover { color: #666; }
 
+input {
+    color:black;
+}
+
 .fieldWithErrors {
   padding: 2px;
   background-color: red;
@@ -26,7 +30,7 @@ a:visited:hover { color: #666; }
 }
 
 #errorExplanation {
-  width: 400px;
+  width: 320px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 12px;

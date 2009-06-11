@@ -4,6 +4,15 @@
  */
 
 var triangle_cache=[];
+var bg = new Image();
+bg.src = '../images/map.jpg';
+var ping = new Image();
+ping.src = '../images/ping.png';
+var terr_img = new Image();
+terr_img.src = '../images/plus_up.png';
+var terr_selected_img = new Image();
+terr_selected_img.src = '../images/plus_over.png';
+
 
 function renderTerritories(canvas, territories) {
     if(!canvas.getContext){
@@ -14,24 +23,35 @@ function renderTerritories(canvas, territories) {
     context = canvas.getContext('2d');
     w = canvas.width;
     h = canvas.height;
-    context.clearRect( 0, 0, w, h );
+//    context.clearRect( 0, 0, w, h );
+    context.drawImage(bg, 0, 0, w, h );
 
     var vertices=[new Vertex(canvas.width / 2, -canvas.height * 2),
                   new Vertex(-canvas.width, canvas.height * 3),
                   new Vertex(canvas.width * 3, canvas.height * 3)];
-    
+    var vertex_colors = [undefined, undefined, undefined];
     for( var terr = 0; terr < territories.length; terr++ )
     {
         if(territories[terr]){
             var vertex = territories[terr];
             vertices.push(vertex)
 
-            context.beginPath();
-            context.arc( vertex.x, vertex.y, 5, 0, Math.PI*2, true );
-            context.closePath();
 
-            context.fillStyle = "#0000ff";
-            context.fill();
+            if (current_territory && terr == current_territory) {
+                vertex_colors.push([128, 0, 0]);
+            } else if(territory_colors && territory_colors[terr]){
+//                context.fillStyle = "rgb(" + territory_colors[terr][0] + "," +
+//                                             territory_colors[terr][1] + "," +
+//                                             territory_colors[terr][2] + ")";
+                vertex_colors.push(territory_colors[terr]);
+            } else {
+//                context.fillStyle = "#FFFFFF"
+                vertex_colors.push(undefined);
+            }
+//            context.beginPath();
+//            context.arc( vertex.x, vertex.y, 5, 0, Math.PI*2, true );
+//            context.closePath();
+//            context.fill();
         }
     }
 
@@ -41,20 +61,44 @@ function renderTerritories(canvas, territories) {
 
     context.strokeStyle= "#800000"
     for(var area_vertex = 0; area_vertex < vertices.length; area_vertex++ ) {
-      var vertex = vertices[area_vertex];
-      var path = getVoronoiPath(vertex, triangle_cache);
-      context.beginPath();
-      context.fillStyle = "rgba(255, 255, 255, 0.2)"; // if no clan controls it
-      for(var p=0; p < path.length; p++) {
-        if (p == 0) {
-          context.moveTo(path[p][0], path[p][1]);
+        if(vertex_colors[area_vertex]) {
+            context.fillStyle = "rgba(" + vertex_colors[area_vertex][0] + "," +
+                                         vertex_colors[area_vertex][1] + "," +
+                                         vertex_colors[area_vertex][2] + ", 0.25)";
         } else {
-          context.lineTo(path[p][0], path[p][1]);
+            continue;
         }
-      }
-      context.closePath();
-      context.stroke();
-      context.fill();
+        var vertex = vertices[area_vertex];
+        var path = getVoronoiPath(vertex, triangle_cache);
+        context.beginPath();
+        for(var p=0; p < path.length; p++) {
+            if (p == 0) {
+              context.moveTo(path[p][0], path[p][1]);
+            } else {
+              context.lineTo(path[p][0], path[p][1]);
+            }
+        }
+        context.closePath();
+        context.stroke();
+        context.fill();
+
+        
+    }
+
+    for( var terr = 0; terr < territories.length; terr++ ) {
+        if(territories[terr]){
+            var vertex = territories[terr];
+            if (current_territory && terr == current_territory) {
+                if (dragging) {
+                    context.drawImage(ping,  vertex.x - ping.width/2, vertex.y - ping.height/2);
+                } else {
+                    context.drawImage(terr_selected_img,
+                                      vertex.x - terr_selected_img.width/2, vertex.y - terr_selected_img.height/2);
+                }
+            } else {
+                context.drawImage(terr_img,  vertex.x - terr_img.width/2, vertex.y - terr_img.height/2);
+            }
+        }
     }
     
 //    for(var i= 0; i < triangles.length; i++ )
@@ -96,4 +140,15 @@ function renderTerritories(canvas, territories) {
 //            }
 //        }
 //    }
+}
+
+function updatePaths(territories) {
+    var html = "";
+    for( var terr = 0; terr < territories.length; terr++ ) {
+        if (territories[terr]){
+            html += "<input id='territory_"+terr+"_shape' type='hidden' name='territory[shape]["+
+                terr+"]' value='"+getVoronoiPath(territories[terr], triangle_cache)+"' />";
+        }
+    }
+    $('territory_shapes').innerHTML=html;
 }

@@ -1,4 +1,6 @@
 class TerritoriesController < ApplicationController
+@@map_bg = Magick::Image.read('public/images/map.jpg').first
+
   # GET /territories
   # GET /territories.xml
   def index
@@ -13,9 +15,36 @@ class TerritoriesController < ApplicationController
   # GET /territories/1
   # GET /territories/1.xml
   def show
-    @territory = Territory.find(params[:id])
+    @territories = Territory.find :all
 
     respond_to do |format|
+      format.png do
+        canvas = Magick::Image.new(params[:width] || 500, params[:height] || 350,
+                      Magick::TextureFill.new(@@map_bg))
+        canvas.format = 'png'
+        gc = Magick::Draw.new
+        @territories.each do |t|
+          gc.fill("transparent")
+          gc.fill("rgba(#{t.clan.color_rgb.join(',')}, 0.1)") if t.clan
+          gc.stroke('rgb(64, 0, 0)')
+          gc.stroke_width(1)
+          t.shape.split(',').each{|e| puts e}
+          s = t.shape.split(',')
+          path = "M #{s[0]} #{s[1]} "
+          s[2..-1].each_slice(2) do |p|
+            path << "L #{p[0]} #{p[1]} "
+          end
+          path << "z"
+          puts "#{t.name}: #{path}"
+          gc.path(path)
+
+          gc.fill("rgba(#{t.clan.color_rgb.join(',')}, 1)") if t.clan
+          gc.circle(t.position_x, t.position_y, t.position_x + 5, t.position_y)
+          gc.draw(canvas)
+        end
+        send_data canvas.to_blob, :disposition => 'inline',
+                                  :type => "image/png"
+      end
       format.html # show.html.erb
       format.xml  { render :xml => @territory }
     end
@@ -66,9 +95,16 @@ class TerritoriesController < ApplicationController
   # PUT /territories/1.xml
   def update
     @territory = Territory.find(params[:id])
-    
+    @territories = Territory.all
+    success = true
+    shapes = params[:territory][:shape]
+    params[:territory][:shape] = params[:territory][:shape][params[:id]]
+    success &&= @territory.update_attributes(params[:territory])
+    @territories.each do |t|
+      success &&= t.update_attribute(:shape, shapes[t.id.to_s])
+    end
     respond_to do |format|
-      if @territory.update_attributes(params[:territory])
+      if success
         format.html do
           flash[:notice] = 'Territory was successfully updated.'
           redirect_to(@territory)
@@ -112,4 +148,5 @@ class TerritoriesController < ApplicationController
       end
     end
   end
+
 end

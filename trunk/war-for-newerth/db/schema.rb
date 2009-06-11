@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090604162055) do
+ActiveRecord::Schema.define(:version => 20090611095348) do
 
   create_table "alliances", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20090604162055) do
     t.string   "tag"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "color"
+    t.binary   "image"
   end
 
   create_table "clans_alliances", :id => false, :force => true do |t|

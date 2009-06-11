@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090604162055
+# Schema version: 20090611095348
 #
 # Table name: clans
 #
@@ -8,6 +8,8 @@
 #  tag        :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  color      :string(255)
+#  image      :binary
 #
 
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')

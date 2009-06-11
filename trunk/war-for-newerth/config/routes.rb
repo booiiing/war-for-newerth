@@ -40,12 +40,12 @@ ActionController::Routing::Routes.draw do |map|
   #     admin.resources :products
   #   end
 
-  map.resource :territory
+  map.resource :territories
   map.resources :clans
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"
-  map.root :controller => 'territories'
+  map.root :controller => 'territories', :action => 'index'
 
   # See how all your routes lay out with "rake routes"
 
