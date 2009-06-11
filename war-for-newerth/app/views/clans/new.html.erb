@@ -1,4 +1,26 @@
-<% content_for :title do %>Clan Registration<% end %>
+<% content_for :title, 'Clan Registration' %>
+<% content_for :head do %>
+  <%= javascript_include_tag 'colourPicker.js'  %>
+  <script type="text/javascript">
+  Event.observe(window, 'load', function() {
+    var picker = new ColourPicker('clan_color', 'clan_color');
+  });
+  </script>
+  <style type="text/css">
+  table.colorPicker
+  {
+      position: absolute;
+      background-color: #FFFFFF;
+      border: solid 1px #000000;
+  }
+  table.colorPicker td
+  {
+      width: 15px;
+      height: 15px;
+      border: solid 1px #000000;
+  }
+  </style>
+<% end %>
 <% crumbs 'Register clan' => new_clan_path %>
 <div class="small-zone">
 <h1>New clan</h1>
@@ -13,6 +35,10 @@
   <p>
     <%= f.label :tag %><br />
     <%= f.text_field :tag %>
+  </p>
+  <p>
+    <%= f.label :color %><br />
+    <%= f.text_field :color, :style => "background-color:#{@clan.color || 'white'}" %>
   </p>
   <p>
     <%= f.submit 'Create' %>

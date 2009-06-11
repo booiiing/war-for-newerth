@@ -25,8 +25,11 @@ function Vertex( x, y )
 {
 	this.x = x;
 	this.y = y;
-
 } // Vertex
+
+Vertex.prototype.equals = function(v) {
+    return (v.x && v.y && (v.x == this.x) && (v.y == this.y));
+}
 
 //------------------------------------------------------------
 // Triangle class
