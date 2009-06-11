@@ -3,6 +3,8 @@
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 
+require 'RMagick'
+
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
@@ -40,5 +42,5 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-require 'RMagick'
+
 Mime::Type.register "image/png", :png

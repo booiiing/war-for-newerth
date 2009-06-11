@@ -65,9 +65,7 @@ function renderTerritories(canvas, territories) {
             context.fillStyle = "rgba(" + vertex_colors[area_vertex][0] + "," +
                                          vertex_colors[area_vertex][1] + "," +
                                          vertex_colors[area_vertex][2] + ", 0.25)";
-        } else {
-            continue;
-        }
+        } 
         var vertex = vertices[area_vertex];
         var path = getVoronoiPath(vertex, triangle_cache);
         context.beginPath();
@@ -80,7 +78,9 @@ function renderTerritories(canvas, territories) {
         }
         context.closePath();
         context.stroke();
-        context.fill();
+        if(vertex_colors[area_vertex]) {
+            context.fill();
+        }
 
         
     }
