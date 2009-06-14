@@ -25,8 +25,10 @@ class TerritoriesController < ApplicationController
         gc = Magick::Draw.new
         @territories.each do |t|
           gc.fill("transparent")
-          gc.fill("rgb(#{t.clan.color_rgb.join(',')})") if t.clan
-          gc.fill_opacity(0.1);
+          if t.clan
+            gc.fill("rgb(#{t.clan.color_rgb.join(',')})")
+            gc.fill_opacity(0.25)
+          end
           gc.stroke('rgb(64, 0, 0)')
           gc.stroke_width(1)
           t.shape.split(',').each{|e| puts e}
@@ -39,11 +41,13 @@ class TerritoriesController < ApplicationController
           puts "#{t.name}: #{path}"
           gc.path(path)
 
-#          gc.fill_opacity(1);
-          gc.fill("rgb(#{t.clan.color_rgb.join(',')})") if t.clan
+          if t.clan
+            gc.fill("rgb(#{t.clan.color_rgb.join(',')})")
+            gc.fill_opacity(1);
+          end
           gc.circle(t.position_x, t.position_y, t.position_x + 5, t.position_y)
-          gc.draw(canvas)
         end
+        gc.draw(canvas)
         send_data canvas.to_blob, :disposition => 'inline',
                                   :type => "image/png"
       end
