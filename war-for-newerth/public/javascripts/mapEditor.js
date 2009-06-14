@@ -38,7 +38,7 @@ function renderTerritories(canvas, territories) {
 
 
             if (current_territory && terr == current_territory) {
-                vertex_colors.push([128, 0, 0]);
+                vertex_colors.push([255, 255, 255]);
             } else if(territory_colors && territory_colors[terr]){
 //                context.fillStyle = "rgb(" + territory_colors[terr][0] + "," +
 //                                             territory_colors[terr][1] + "," +

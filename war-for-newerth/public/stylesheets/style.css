@@ -59,8 +59,9 @@ input {
   list-style: square;
 }
 
+#notification-area { position:absolute; width: 100%; }
 #notification-area p {
-    padding-left: 100px;
+    text-align: center;
     margin: 0px;
     font-size: large;
 }
