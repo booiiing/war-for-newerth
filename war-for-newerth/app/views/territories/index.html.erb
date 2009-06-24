@@ -5,7 +5,9 @@
 <% border 'border3' do %>
   <div id="map-container" >
     <% border 'border4' do %>
-      <img alt="Territories Map" src="<%= url_for :action => 'show', :controller => 'territories' %>.png" />
+      <%= generate_imagemap_for @territories %>
+      <img alt="Territories Map" usemap="#map" border="0"
+           src="<%= url_for :action => 'show', :controller => 'territories' %>.png" />
     <% end %>
     <%= link_to image_tag('cc_panel_bottom.png', :id => 'map-bottom'), edit_territories_path %>
   </div>

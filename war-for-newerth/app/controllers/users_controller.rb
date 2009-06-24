@@ -14,11 +14,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find params[:id]
+    render :action => :show unless @user == current_user #TODO or an admin
   end
 
   def update
     @user = User.find params[:id]
-    @user.update_attributes(params[:user])
+    @user.update_attributes(params[:user]) unless @user == current_user #TODO or an admin
   end
  
   def create
