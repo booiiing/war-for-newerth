@@ -13,4 +13,14 @@ module TerritoriesHelper
     js << "renderTerritories( $('canvas'), territories );"
     js
   end
+
+  def generate_imagemap_for territories, map_id='map'
+    map = "<map name=#{map_id} id=#{map_id}>"
+    territories.each do |t|
+      map << "<area coords='#{t.shape}' shape='poly' href='#' " +
+        "onclick='alert(\"#{t.name}: #{t.clan.name if t.clan}\");return false;' " +
+        "onmouseover='console.debug(\"hovering: #{t.name}\")' alt='#{t.name}' />"
+    end
+    map << "</map>"
+  end
 end
