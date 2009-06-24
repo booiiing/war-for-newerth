@@ -1,28 +1,37 @@
 <% remote_form_for :territory, territory,
                    :url => {:controller => :territories, :action => :update, :id => territory},
                    :html => { :method => :put, :class => "edit_territory"} do |f| %>
-  <div style="float:right;">
-    <div>
+<table>
+   <tr>
+     <td>
+      <span class="labeled-field" >
+        <%= f.label :name  %>
+        <%= f.text_field :name, :value => territory.name || "New territory ##{territory.id}" %>
+      </span>
+     </td>
+     <td rowspan="2">
+      <%= f.label :details, 'Details'  %><br/>
+      <%= f.text_field :details, :size => "25" %>
+     </td>
+     <td>
       <span class="labeled-field">
         <%= f.label :clan_id, 'Belongs to'  %>
         <%= f.select :clan_id, Clan.find(:all).collect {|c| [c.name, c.id]}, :include_blank => true %>
       </span>
-      <br/>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <span class="labeled-field" >
+        <%= f.label :map_name  %>
+        <%= f.text_field :map_name %>
+      </span>
+     </td>
+     <td>
       <%= f.submit 'Save', :onclick => "updatePaths(territories)" %>
-    </div>
-  </div>
-  <div>
-    <span class="labeled-field" >
-      <%= f.label :name  %>
-      <%= f.text_field :name, :value => territory.name || "New territory ##{territory.id}" %>
-    </span>
-    <br/>
-    <span class="labeled-field" >
-      <%= f.label :map_name  %>
-      <%= f.text_field :map_name %>
-    </span>
-  </div>
-
+     </td>
+   </tr>
+</table>
   <%= f.hidden_field(:position_x) %>
   <%= f.hidden_field(:position_y) %>
   <span id="territory_shapes"><%= f.hidden_field(:shape) %></span>

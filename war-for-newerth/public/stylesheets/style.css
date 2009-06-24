@@ -119,6 +119,8 @@ div#map-container{
 
 img#map-bottom { margin-top: -30px; border:none; }
 
+#tools-form-container table { width: 100%; }
+
 input#territory_submit {
     float:right;
     background: url(/images/border02_noalpha.png) center center no-repeat;
