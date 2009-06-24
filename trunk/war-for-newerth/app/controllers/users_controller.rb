@@ -7,6 +7,19 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
+  def show
+    @user = User.find params[:id]
+  end
+
+  def edit
+    @user = User.find params[:id]
+  end
+
+  def update
+    @user = User.find params[:id]
+    @user.update_attributes(params[:user])
+  end
  
   def create
     logout_keeping_session!

@@ -1,6 +1,7 @@
 <% content_for :title do %>Login<% end %>
 <% crumbs 'login' => new_session_path %>
 <p>Wellcome back to <%= link_to "War For Newerth", :root %>.</p>
+<div class="error"><%= flash[:error] %></div>
 <div class="small-zone">
 <h4>Login</h4 >
   <% border 'border3' do %>

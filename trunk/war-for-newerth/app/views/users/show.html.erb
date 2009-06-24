@@ -1,0 +1,13 @@
+<% crumbs "Show User information: #{@user.login}" => user_path(@user) %>
+<% content_for(:title, 'User information') %>
+<p>
+  <b>Name:</b>
+  <%= link_to("[#{@user.clan.tag}]", clan_path(@user.clan)) if @user.clan %>
+  <%=h @user.login %>
+</p>
+<p>
+  <b>Email:</b> <%= @user.email %>
+</p>
+
+<%= link_to('Edit', edit_user_path(@user)) + " | " if @user == current_user %>
+<%= link_to 'Back', root_path %>
