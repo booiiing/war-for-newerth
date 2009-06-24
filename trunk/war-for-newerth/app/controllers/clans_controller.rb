@@ -41,7 +41,8 @@ class ClansController < ApplicationController
   # POST /clans.xml
   def create
     @clan = Clan.new(params[:clan])
-
+    current_user.clan = @clan if current_user.clan.nil?
+    current_user.save!
     respond_to do |format|
       if @clan.save
         flash[:notice] = 'Clan was successfully created.'
