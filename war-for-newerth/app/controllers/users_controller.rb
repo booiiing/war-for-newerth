@@ -19,7 +19,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find params[:id]
-    @user.update_attributes(params[:user]) unless @user == current_user #TODO or an admin
+    @user.update_attributes(params[:user]) if @user == current_user  #TODO or an admin
+    if params[:user][:clan_id] and @user.clan.nil?
+      @user.update_attribute(:clan_id, params[:user][:clan_id])
+    end
+    
+    render :action => :show
   end
  
   def create

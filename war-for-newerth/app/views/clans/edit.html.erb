@@ -1,5 +1,8 @@
+<% content_for :title, 'Clan modification' %>
+<% crumbs "Edit Clan: #{@clan.name} " => edit_clan_path(@clan) %>
+<div class="small-zone">
 <h1>Editing clan</h1>
-
+<% border 'border3' do %>
 <% form_for(@clan) do |f| %>
   <%= f.error_messages %>
 
@@ -13,8 +16,20 @@
   </p>
   <p>
     <%= f.submit 'Update' %>
+    <%= link_to 'Back', :back %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @clan %> |
-<%= link_to 'Back', clans_path %>
+<p>
+  <fieldset>
+    <legend>Add a new member</legend>
+    <% form_tag({:controller => :users}, {:method => :put, :id => 'recruit'}) do %>
+      <%= select_tag 'id', options_for_select(User.all(:conditions => {:clan_id => nil}).collect{|u| [u.login, u.id]}),
+                     :id => 'new_member' %>
+      <%= hidden_field :user, :clan_id, :value => @clan.id %>
+      <%= submit_tag 'Recruit!', :confirm => "Are you sure to recruit this player?",
+                     :onclick => "$('recruit').action+=('/'+$('new_member').value);return($('new_member').value.length > 0);" %>
+    <% end %>
+  </fieldset>
+</p>
+<% end %>
+</div>
