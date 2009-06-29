@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090611095348
+# Schema version: 20090627162800
 #
 # Table name: alliances
 #

@@ -1,0 +1,22 @@
+<!-- 'news/show' -->
+<div class="news">
+  <div class="news-header">
+    <h2><%= new.title || 'No title' -%></h2>
+    by <strong><%= new.poster.login %></strong> on <small><%= new.created_at %></small>
+  </div>
+  <div class="news-body">
+    <%= new.text %>
+
+    <div><%= link_to("Read (#{new.comments.size}) comments...") if new.comments.any? -%></div>
+  </div>
+  <p class="news-controls">
+    <% if current_user %>
+      <%= link_to('Comment', {}, :confirm => 'Not just yet') unless current_user.nil? -%>
+      <%= link_to('Edit', {:controller => :news, :action => :edit, :id => new},
+                  :popup => ['name="news', 'width=520,height=400,top=150,' +
+                                           'left=350,location=0,toolbar=0,status=0']) if current_user.admin? -%>
+      <%= link_to('Destroy', {:controller => :news, :action => :destroy, :id => new},
+                  :method => :delete, :confirm => 'Are you sure?') if current_user.admin? -%>
+    <% end %>
+  </p>
+</div>

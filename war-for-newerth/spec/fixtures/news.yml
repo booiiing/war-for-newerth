@@ -1,0 +1,22 @@
+# == Schema Information
+# Schema version: 20090627162800
+#
+# Table name: news
+#
+#  id         :integer         not null, primary key
+#  poster_id  :integer
+#  title      :string(255)
+#  text       :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  poster_id: 1
+  text: MyText
+
+two:
+  poster_id: 1
+  text: MyText
