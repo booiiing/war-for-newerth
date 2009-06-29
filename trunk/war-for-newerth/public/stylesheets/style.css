@@ -112,6 +112,18 @@ div#content {
     padding:12px;
 }
 
+div#news-container{
+    width: 400px;
+    min-height: 420px;
+}
+
+/* for Internet Explorer */
+/*\*/
+* html .container {
+    height: 420px;
+}
+/**/
+
 div#map-container{
     text-align: center;
     float:right;
@@ -136,9 +148,50 @@ div#territories-list li:hover { list-style: none; list-style-image: url(/images/
 div#territories-list li.active { list-style: none; list-style-image: url(/images/plus_over.png); }
 div#territories-list li.active a { color: #007f00; }
 
+body.popup {
+    background: url(/images/parchment02.png) black top center no-repeat;
+}
+div.popup-form { text-align: center; padding: 20px;}
+div.popup-form p.submit { text-align: right; }
+div.popup-form label { color: black; font-weight:bold; font-size: large; }
 
+div#news-container {
+    padding-top: 25px;
+    background: url(/images/ornate_bar.png) transparent top center repeat-x;
+}
 
+div#news-container > a {
+    background:black;
+    color: #B8840A;
+    margin:5px;
+    border:1px solid silver;
+    float:right;
+    padding:2px 5px;
+}
 
+div.news {
+    margin: 10px 0px;
+}
+div.news > * { margin: 0px; }
+div.news-body {
+    border: 1px solid silver;
+    border-top: none;
+    padding: 1em;
+}
+p.news-controls {
+    border: 1px dotted silver;
+    border-top: none;
+    margin-bottom: 20px;
+}
+p.news-controls a {
+    color: #B8840A;
+    padding:2px 5px;
+    margin-right: 10px;
+}
 
-
-
+div.news-header > h2{ margin:0px; }
+div.news-header {
+    border: 1px solid silver;
+    border-bottom: 1px dotted silver;
+    padding: 0.5em;
+}

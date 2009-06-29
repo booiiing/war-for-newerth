@@ -1,0 +1,15 @@
+<div class="popup-form">
+<% form_for new, :url => (new.new_record? ? {:action => :create, :controller => :news} : news_path(new)) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title  %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= fckeditor_textarea :new, :text, :toolbarSet => 'Easy', :width => '450px', :height => '250px' %>
+  </p>
+  <p class="submit">
+    <%= f.submit new.new_record? ? 'Create' : 'Update' %>
+  </p>
+<% end %>
+</div>

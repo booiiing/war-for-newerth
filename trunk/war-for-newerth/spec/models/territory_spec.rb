@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090611095348
+# Schema version: 20090627162800
 #
 # Table name: territories
 #
@@ -12,6 +12,7 @@
 #  updated_at :datetime
 #  position_x :float
 #  position_y :float
+#  details    :text
 #
 
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
