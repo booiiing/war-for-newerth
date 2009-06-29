@@ -5,7 +5,7 @@ class TerritoriesController < ApplicationController
   # GET /territories.xml
   def index
     @territories = Territory.all
-    @news = New.paginate :page => (params[:page] || 1)
+    @news = New.paginate :page => (params[:page] || 1), :order => 'created_at DESC'
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @territories }
