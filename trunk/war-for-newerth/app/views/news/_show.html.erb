@@ -7,12 +7,18 @@
   <div class="news-body">
     <%= new.text %>
 
-    <div><%= link_to("Read (#{new.comments.size}) comments...") if new.comments.any? -%></div>
+    <div><%= link_to("Read (#{new.comments.size}) comments...", news_path(new),
+                     :popup => ['name="news', 'width=520,height=400,top=150,' +
+                                           'left=350,location=0,toolbar=0,status=0,' +
+                                           'scrollbars=yes']) if new.comments.any? -%></div>
   </div>
   <p class="news-controls">
     <% if current_user %>
-      <%= link_to('Comment', {}, :confirm => 'Not just yet') unless current_user.nil? -%>
-      <%= link_to('Edit', {:controller => :news, :action => :edit, :id => new},
+      <%= link_to('Comment', news_path(new),
+                  :popup => ['name="news', 'width=520,height=400,top=150,' +
+                                           'left=350,location=0,toolbar=0,status=0,' +
+                                           'scrollbars=yes']) unless current_user.nil? -%>
+      <%= link_to('Edit', edit_news_path(new),
                   :popup => ['name="news', 'width=520,height=400,top=150,' +
                                            'left=350,location=0,toolbar=0,status=0']) if current_user and current_user.admin? -%>
       <%= link_to('Destroy', {:controller => :news, :action => :destroy, :id => new},

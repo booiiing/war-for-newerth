@@ -1,0 +1,7 @@
+<!-- 'comments/show' -->
+<div class="comment">
+  <div class="comment-title">
+    <%= link_to comment.poster.login, user_path(comment.poster) %> says:
+  </div>
+  <div class="comment-body"> <%= comment.text %> </div>
+</div>

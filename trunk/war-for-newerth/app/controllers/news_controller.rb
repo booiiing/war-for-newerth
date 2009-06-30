@@ -10,7 +10,7 @@ class NewsController < ApplicationController
   
   def create
     @new = New.new params[:new]
-    @new.poster = current_user || User.first
+    @new.poster = current_user
     if @new.save
       flash[:notice] = "Successfully created"
       render :text => '<script type="text/javascript">window.opener.location.reload();window.close();</script>'
@@ -26,7 +26,7 @@ class NewsController < ApplicationController
 
   def update
     @new = New.find params[:id]
-    @new.poster = current_user || User.first
+    @new.poster = current_user
     if @new.update_attributes params[:new]
       flash[:notice] = "Successfully updated"
       render :text => '<script type="text/javascript">window.opener.location.reload();window.close();</script>'
