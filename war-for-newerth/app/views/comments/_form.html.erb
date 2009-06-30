@@ -1,0 +1,13 @@
+<!-- comments/form -->
+<div class="popup-form">
+<% form_for Comment.new, :url => {:controller => :comments, :action => :create, :new_id => new} do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.hidden_field :new_id, {:value => new.id} %>
+    <%= fckeditor_textarea :comment, :text, :toolbarSet => 'Easy', :width => '450px', :height => '250px' %>
+  </p>
+  <p class="submit">
+    <%= f.submit 'Comment' %>
+  </p>
+<% end %>
+</div>

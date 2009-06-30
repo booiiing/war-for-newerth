@@ -149,7 +149,7 @@ div#territories-list li.active { list-style: none; list-style-image: url(/images
 div#territories-list li.active a { color: #007f00; }
 
 body.popup {
-    background: url(/images/parchment02.png) black top center no-repeat;
+    background: url(/images/parchment02.png) black top center no-repeat fixed !important;
 }
 div.popup-form { text-align: center; padding: 20px;}
 div.popup-form p.submit { text-align: right; }
@@ -169,15 +169,17 @@ div#news-container > a {
     padding:2px 5px;
 }
 
-div.news {
-    margin: 10px 0px;
+div.news { margin: 10px 0px; }
+div.news > * {
+    margin: 0px;
+    background: transparent url(/images/black_128.png) repeat;
 }
-div.news > * { margin: 0px; }
 div.news-body {
     border: 1px solid silver;
     border-top: none;
     padding: 1em;
 }
+
 p.news-controls {
     border: 1px dotted silver;
     border-top: none;
@@ -195,3 +197,10 @@ div.news-header {
     border-bottom: 1px dotted silver;
     padding: 0.5em;
 }
+
+div.news-comments {
+    margin: 5px 0px;
+    border: 1px solid silver;
+}
+div.comment > * { padding: 5px 10px; }
+div.comment-title { border-bottom: 1px dotted silver; }

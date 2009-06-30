@@ -1,4 +1,15 @@
-<%= render :partial => 'show', :locals => { :new => @new } %>
-<% @new.comments.each do |comment| %>
-  <%= render :partial => 'comments/show', :locals => { :comment => comment } %>
-<% end %>
+<div class="news">
+  <div class="news-header">
+    <h2><%= @new.title || 'No title' -%></h2>
+    by <strong><%= @new.poster.login %></strong> on <small><%= @new.created_at %></small>
+  </div>
+  <div class="news-body">
+    <%= @new.text %>
+  </div>
+  <div class="news-comments">
+    <% @new.comments.each do |comment| %>
+      <%= render :partial => 'comments/show', :locals => { :comment => comment } %>
+    <% end %>
+  </div>
+</div>
+<%= render(:partial => 'comments/form', :locals => { :new => @new }) unless current_user.nil? %>

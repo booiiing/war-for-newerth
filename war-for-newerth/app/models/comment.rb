@@ -12,4 +12,6 @@
 #
 
 class Comment < ActiveRecord::Base
+  belongs_to :poster, :class_name => 'User', :foreign_key => :poster_id
+  belongs_to :new
 end
