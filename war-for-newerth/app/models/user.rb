@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090611095348
+# Schema version: 20090630192501
 #
 # Table name: users
 #
@@ -14,6 +14,7 @@
 #  remember_token            :string(40)
 #  remember_token_expires_at :datetime
 #  clan_id                   :integer
+#  is_admin                  :boolean
 #
 
 require 'digest/sha1'
@@ -69,7 +70,7 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    return true
+    return is_admin?
   end
 
   protected
