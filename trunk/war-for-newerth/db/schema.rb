@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090627162800) do
+ActiveRecord::Schema.define(:version => 20090630192501) do
 
   create_table "alliances", :force => true do |t|
     t.string   "name"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20090627162800) do
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
     t.integer  "clan_id"
+    t.boolean  "is_admin",                                 :default => false
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
