@@ -6,10 +6,13 @@
   <div id="map-container" >
     <% border 'border4' do %>
       <%= generate_imagemap_for @territories %>
-      <img alt="Territories Map" usemap="#map" border="0"
-           src="<%= url_for :action => 'show', :controller => 'territories' %>.png" />
+      <%= image_tag 'map/base.png', :alt => "Territories Map",
+                                    :usemap => "#map",
+                                    :border => 0 %>
+      <%#*<img alt="Territories Map" usemap="#map" border="0"%>
+           <%#*src="<%= url_for :action => 'show', :controller => 'territories' % >.png" />%>
     <% end %>
-    <% if current_user and current_user.admin? %>
+    <% if current_user and current_user.is_admin? %>
       <%= link_to image_tag('cc_panel_bottom.png', :id => 'map-bottom'), edit_territories_path -%>
     <% else %>
       <%= image_tag 'cc_panel_bottom.png', :id => 'map-bottom' %>
@@ -18,7 +21,7 @@
   <div id="news-container">
     <%= link_to('New', {:controller => :news, :action => :new},
                   :popup => ['name="news', 'width=520,height=400,top=150,' +
-                                           'left=350,location=0,toolbar=0,status=0']) if current_user and current_user.admin? %>
+                                           'left=350,location=0,toolbar=0,status=0']) if current_user and current_user.is_admin? %>
     <% @news.each do |new| %>
       <%= render :partial => 'news/show', :locals => {:new => new} %>
     <% end %>

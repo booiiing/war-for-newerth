@@ -1,5 +1,8 @@
 class TerritoriesController < ApplicationController
-@@map_bg = Magick::Image.read('public/images/map.jpg').first
+
+  after_filter :generate_images, :only => [:update, :destroy]
+
+  @@map_bg = Magick::Image.read('public/images/map.jpg').first
 
   # GET /territories
   # GET /territories.xml
@@ -139,8 +142,7 @@ class TerritoriesController < ApplicationController
   # DELETE /territories/1.xml
   def destroy
     @territory = Territory.find(params[:id])
-    @territory.destroy
-
+    @territory.destroy    
     respond_to do |format|
       format.html { redirect_to(territories_url) }
       format.xml  { head :ok }
@@ -153,6 +155,44 @@ class TerritoriesController < ApplicationController
         end
       end
     end
+  end
+
+  protected
+
+  # Regenerates all the images cached on /public/images/map
+  # Should be called after creating, updating or destroying territories.
+  def generate_images width=500, height=350
+    # Base image with all territories shaded
+    canvas = Magick::Image.new(width, height, Magick::TextureFill.new(@@map_bg))
+    canvas.format = 'png'
+    gc = Magick::Draw.new
+    Territory.all.each do |t|
+      gc.fill("transparent")
+      if t.clan
+        gc.fill("rgb(#{t.clan.color_rgb.join(',')})")
+        gc.fill_opacity(0.25)
+      end
+      gc.stroke('rgb(64, 0, 0)')
+      gc.stroke_width(1)
+      if t.shape
+        s = t.shape.split(',')
+        path = "M #{s[0]} #{s[1]} "
+        s[2..-1].each_slice(2) do |p|
+          path << "L #{p[0]} #{p[1]} "
+        end
+        path << "z"
+        gc.path(path)
+      end
+
+      if t.clan
+        gc.fill("rgb(#{t.clan.color_rgb.join(',')})")
+        gc.fill_opacity(1);
+      end
+      gc.circle(t.position_x, t.position_y, t.position_x + 5, t.position_y)
+    end
+    gc.draw(canvas)
+    canvas.write("#{RAILS_ROOT}/public/images/map/base.png")
+    true
   end
 
 end

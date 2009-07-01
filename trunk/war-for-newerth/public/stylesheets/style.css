@@ -59,7 +59,7 @@ input {
   list-style: square;
 }
 
-#notification-area { position:absolute; width: 100%; }
+#notification-area { position:absolute; width: 99%; }
 #notification-area p {
     text-align: center;
     margin: 0px;
