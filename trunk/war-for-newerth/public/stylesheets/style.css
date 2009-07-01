@@ -203,4 +203,5 @@ div.news-comments {
     border: 1px solid silver;
 }
 div.comment > * { padding: 5px 10px; }
+div.comment { border-bottom: 2px solid silver; }
 div.comment-title { border-bottom: 1px dotted silver; }
