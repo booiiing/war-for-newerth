@@ -124,6 +124,8 @@ class TerritoriesController < ApplicationController
             page << notify_msg("The territory was updated!")
             page['territories-list'].replace_html render(:partial => 'list',
                                                          :locals => {:territories => Territory.find(:all)})
+            page['territory_submit'].enable()
+            page['territory_submit'].value = 'Save'
           end
         end
       else

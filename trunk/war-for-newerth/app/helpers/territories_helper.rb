@@ -14,7 +14,7 @@ module TerritoriesHelper
     js
   end
 
-  def generate_imagemap_for territories, map_id='map'
+  def generate_imagemap_for_territories territories, map_id='map'
     map = "<map name=#{map_id} id=#{map_id}>"
     territories.each do |t|
       map << "<area coords='#{t.shape}' shape='poly' href='#' " +

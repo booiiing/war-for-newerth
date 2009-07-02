@@ -82,6 +82,7 @@ div#user-bar {
     margin: 0px;
     font-size: x-small;
     color: #f0f0f0;
+    line-height: 28px;
 }
 div#user-bar a {
     color: #fafafa;
@@ -201,6 +202,7 @@ div.news-header {
 div.news-comments {
     margin: 5px 0px;
     border: 1px solid silver;
+    border-bottom: none;
 }
 div.comment > * { padding: 5px 10px; }
 div.comment { border-bottom: 2px solid silver; }

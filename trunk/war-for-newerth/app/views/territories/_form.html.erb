@@ -28,7 +28,7 @@
       </span>
      </td>
      <td>
-      <%= f.submit 'Save', :onclick => "updatePaths(territories)" %>
+      <%= f.submit 'Save', :onclick => "$(this).disable();$(this).value='Saving...';updatePaths(territories)" %>
      </td>
    </tr>
 </table>
