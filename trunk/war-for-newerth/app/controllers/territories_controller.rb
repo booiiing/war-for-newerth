@@ -166,7 +166,7 @@ class TerritoriesController < ApplicationController
   def generate_images width=500, height=350
     # Base image with all territories shaded
     canvas = Magick::Image.new(width, height, Magick::TextureFill.new(@@map_bg))
-    canvas.format = 'png'
+    canvas.format = 'jpg'
     gc = Magick::Draw.new
     Territory.all.each do |t|
       gc.fill("transparent")
@@ -193,7 +193,7 @@ class TerritoriesController < ApplicationController
       gc.circle(t.position_x, t.position_y, t.position_x + 5, t.position_y)
     end
     gc.draw(canvas)
-    canvas.write("#{RAILS_ROOT}/public/images/map/base.png")
+    canvas.write("#{RAILS_ROOT}/public/images/map/base.jpg")
     true
   end
 

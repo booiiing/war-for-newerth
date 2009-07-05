@@ -6,10 +6,10 @@
   <div id="map-container" >
     <% border 'border4' do %>
       <%= generate_imagemap_for_territories @territories %>
-      <%= image_tag 'map/base.png', :size => "500x350",
-                                    :alt => "Territories Map",
-                                    :usemap => "#map",
-                                    :border => 0 %>
+      <%= image_tag 'map/base.jpg', :size => "500x350",
+                                :alt => "Territories Map",
+                                :usemap => "#map",
+                                :border => 0 %>
       <%#*<img alt="Territories Map" usemap="#map" border="0"%>
            <%#*src="<%= url_for :action => 'show', :controller => 'territories' % >.png" />%>
     <% end %>
