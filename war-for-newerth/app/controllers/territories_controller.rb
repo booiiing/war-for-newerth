@@ -193,7 +193,7 @@ class TerritoriesController < ApplicationController
       gc.circle(t.position_x, t.position_y, t.position_x + 5, t.position_y)
     end
     gc.draw(canvas)
-    canvas.write("#{RAILS_ROOT}/public/images/map/base.jpg"){ self.quality = 100 }
+    canvas.write("#{RAILS_ROOT}/public/images/map/base.jpg"){ self.quality = 95 }
 
     true
   end
