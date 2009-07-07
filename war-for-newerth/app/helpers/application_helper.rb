@@ -12,11 +12,11 @@ module ApplicationHelper
   # .classname-top-left, .classname-top-right, .classname-bottom-left, .classname-bottom-right
   #
   def border style_name, &proc
-    concat("<div class='#{style_name}-top'><div class='#{style_name}-left'>" +
+    concat("<!-- border --><div class='#{style_name}-top'><div class='#{style_name}-left'>" +
            "<div class='#{style_name}-right'><div class='#{style_name}-bottom'>" +
            "<div class='#{style_name}-top-left'><div class='#{style_name}-top-right'>" +
            "<div class='#{style_name}-bottom-left'><div class='#{style_name}-bottom-right'>" +
-           "<div class='#{style_name}'>");
+           "<div class='#{style_name}'><!-- border(style_name) in application_helper -->");
     yield proc;
     concat("</div></div></div></div></div></div></div></div></div>");
   end
