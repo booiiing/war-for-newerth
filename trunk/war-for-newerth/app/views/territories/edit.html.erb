@@ -1,5 +1,6 @@
 <% crumbs 'Edit territories' => edit_territories_path %>
 <% content_for(:title, 'Edit territories') %>
+<%# Extra js imports for the map stuff %>
 <% content_for(:head, javascript_include_tag('delaunay.js')) %>
 <% content_for(:head, javascript_include_tag('voronoi.js')) %>
 <% content_for(:head, javascript_include_tag('mapEditor.js')) %>
@@ -21,7 +22,7 @@
     function click(e) {
       var cx = (e.clientX - e.currentTarget.offsetLeft + pageXOffset);
       var cy = (e.clientY - e.currentTarget.offsetTop + pageYOffset);
-      var one_near = false;
+      var one_near = false; // if you're trying to place a territory near another one
       var was_dragging = dragging;
       for( var t = 0; t < territories.length; t++ ) {
         if(territories[t]){

@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+  # So the whole application save the main page needs authentication
   include AuthenticatedSystem
 
 end

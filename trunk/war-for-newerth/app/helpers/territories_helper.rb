@@ -14,6 +14,10 @@ module TerritoriesHelper
     js
   end
 
+  # Generates the <code>map</code> tag to use with an image in form of an html imagemap
+  #
+  # Each territory generates a <code>area</code> tag with onclick and onmouseover
+  # functions to create the map functionality
   def generate_imagemap_for_territories territories, map_id='map'
     map = "<map name=#{map_id} id=#{map_id}>"
     territories.each do |t|

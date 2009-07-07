@@ -41,7 +41,9 @@ class ClansController < ApplicationController
   # POST /clans.xml
   def create
     @clan = Clan.new(params[:clan])
-    current_user.clan = @clan if current_user.clan.nil?
+    # TODO check if the clan really exists in http://savage2clans.com/
+    # TODO add clan manager role for users
+    current_user.clan = @clan if current_user.clan.nil? # clan creator should be in a clan
     current_user.save!
     respond_to do |format|
       if @clan.save
@@ -59,7 +61,7 @@ class ClansController < ApplicationController
   # PUT /clans/1.xml
   def update
     @clan = Clan.find(params[:id])
-
+    # TODO prevent unauthorized clan editing
     respond_to do |format|
       if @clan.update_attributes(params[:clan])
         flash[:notice] = 'Clan was successfully updated.'
@@ -76,6 +78,7 @@ class ClansController < ApplicationController
   # DELETE /clans/1.xml
   def destroy
     @clan = Clan.find(params[:id])
+    # TODO prevent unauthorized clan removing (admin or clan admin?)
     @clan.destroy
 
     respond_to do |format|
