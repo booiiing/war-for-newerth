@@ -110,13 +110,13 @@ div#user-bar-action {
 }
 
 div#content {
-    width: 1000px;
+    width: 975px;
     margin: 0px auto;
-    padding:12px;
+    padding:12px 0px;
 }
 
 div#news-container{
-    width: 400px;
+    width: 375px;
     min-height: 420px;
 }
 
