@@ -5,6 +5,11 @@
 <% border 'border3' do %>
   <div id="map-container" >
     <% border 'border4' do %>
+      <div id="map-overlay"
+           style="display:none;"
+           onclick="$(this).innerHTML='<img src=\'<%= image_path 'loading.gif' %>\' id=\'spinner\' />';$(this).hide();" >
+             <%= image_tag('loading.gif', :id => 'spinner') -%>
+      </div>
       <%= generate_imagemap_for_territories @territories %>
       <%= image_tag 'map/base.jpg', :size => "500x350",
                                 :alt => "Territories Map",

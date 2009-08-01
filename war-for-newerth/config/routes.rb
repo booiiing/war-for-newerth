@@ -43,6 +43,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   map.resource :territories
+  map.resources :matches
   map.resources :clans
 
   map.resources :news

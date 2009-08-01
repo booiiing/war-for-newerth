@@ -132,6 +132,33 @@ div#map-container{
     float:right;
 }
 
+div#map-overlay {
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    background: transparent url(/images/black_128.png) repeat;
+}
+div#map-overlay #spinner{
+    margin-top: 125px;
+}
+
+div#territory-image {
+    float:left;
+    width:192px;
+    height:192px;
+    margin: 0px 20px;
+    background: transparent url(/images/image_empty.jpg) no-repeat center center;
+    border: 1px solid gold;
+}
+
+div#territory-data {
+    text-align: left;
+    background: transparent url(/images/black_128.png) repeat;
+    margin-left: 212px;
+}
+
+div#territory-control { clear:both; }
+
 img#map-bottom { margin-top: -30px; border:none; }
 
 #tools-form-container table { width: 100%; }
