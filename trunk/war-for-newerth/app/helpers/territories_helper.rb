@@ -22,7 +22,8 @@ module TerritoriesHelper
     map = "<map name=#{map_id} id=#{map_id}>"
     territories.each do |t|
       map << "<area coords='#{t.shape}' shape='poly' href='#' " +
-        "onclick='alert(\"#{t.name}: #{t.clan.name if t.clan}\");return false;' " +
+        "onclick=\"#{remote_function(:url => {:action => :show, :id => t}, :update => 'map-overlay')};"+
+        "$('map-overlay').show();return false;\" " +
         "onmouseover='console.debug(\"hovering: #{t.name}\")' alt='#{t.name}' />"
     end
     map << "</map>"

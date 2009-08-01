@@ -1,3 +1,20 @@
-
-<%= link_to 'Edit', edit_territory_path(@territory) %> |
-<%= link_to 'Back', territories_path %>
+<div>
+  <h3><%= @territory.name %></h3>
+  <div id="territory-image">
+    <%= image_tag "http://www.savage2replays.com/maps/#{@territory.map_name}.jpg",
+                  :size => "192x192"  %>
+  </div>
+  <div id="territory-data">
+    <ul>
+      <li><strong>Map name:</strong> <%= @territory.map_name %></li>
+      <li><strong>Owner:</strong> <%= link_to @territory.clan.name, clan_path(@territory.clan) if @territory.clan %></li>
+      <li><strong>Troop production:</strong> 0</li>
+      <li><strong>Troop attack cost:</strong> 0</li>
+    </ul>
+    <strong>Details:</strong>
+    <p><%= @territory.details %></p>
+  </div>
+</div>
+<div id="territory-control">
+  <%= link_to 'Attack!', :action => :new, :controller => :matches %>
+</div>

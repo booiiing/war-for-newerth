@@ -19,7 +19,7 @@ class TerritoriesController < ApplicationController
   # GET /territories/1
   # GET /territories/1.xml
   def show
-    @territories = Territory.find :all
+    @territory = Territory.find params[:id]
 
     respond_to do |format|
       format.png do
@@ -28,6 +28,7 @@ class TerritoriesController < ApplicationController
       end
       format.html # show.html.erb
       format.xml  { render :xml => @territory }
+      format.js { render :template => "territories/show", :layout => false}
     end
   end
 
