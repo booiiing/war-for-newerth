@@ -7,7 +7,8 @@
     <% border 'border4' do %>
       <div id="map-overlay"
            style="display:none;"
-           onclick="$(this).innerHTML='<img src=\'<%= image_path 'loading.gif' %>\' id=\'spinner\' />';$(this).hide();" >
+           onclick="$(this).update('<img src=\'<%= image_path 'loading.gif'
+                    -%>\' id=\'spinner\' />');$(this).hide()" >
              <%= image_tag('loading.gif', :id => 'spinner') -%>
       </div>
       <%= generate_imagemap_for_territories @territories %>

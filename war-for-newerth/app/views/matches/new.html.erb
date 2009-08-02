@@ -1,1 +1,53 @@
-<%= "new.html" %>
+<% crumbs "Attack territory: Arrange a new match " => new_match_path %>
+<% content_for :head do %>
+<script type="text/javascript">
+var loc = false;
+function checkIframeRedirected(){
+  l = $('admin-frame').contentWindow.location
+  if (loc == l) {
+    setTimeout(checkIframeRedirected, 500);
+  } else {
+    <%= remote_function :url => { :action => :new, :mode => :official }  -%>
+  }
+}
+</script>
+<% end %>
+
+<h1>Arrange the battle</h1>
+<p>So, now what?</p>
+<p>
+  Now you have to arrange a battle with
+  <%= @territory.nil? ? 'the current owners' : link_to(@territory.clan.name, clan_path(@territory.clan)) %>
+  over the control of <%= @territory.nil? ? 'the territory' : @territory.name %>.
+  You have <strong>three</strong> options to do so.
+</p>
+
+<% border 'border3' do %>
+<div id="remote_content" >
+<p><%= link_to 'Official Savage2 clans matchmaking', 'http://www.savage2clans.com' %>:<p/>
+<p>
+  Appoint the match on an official server using the services provided by S2Games.
+  The server will automatically lock ant the time appointed and only members of
+  the two clans will be able to join the game.
+</p>
+<p>You need to log in as clan admin with your Savage2 account:</p>
+<%= render :partial => 's2_frame',
+           :locals => {
+              :url => 'http://www.savage2clans.com',
+              :viewport_size => [180, 130],
+              :frame_size => [200, 1400],
+              :offset => [10, 550] } %>
+</div>
+<% end %>
+<% border 'border3' do %>
+<div>
+  <p>(not implemented) Refreed match</p>
+  <p>Playing on any private server with a neutral refree aprooved by both clans</p>
+</div>
+<% end %>
+<% border 'border3' do %>
+<div>
+  (not implemented) Unofficial clan ladder.
+  <p>Playing on any private server using the community provided match making and recording system.</p>
+</div>
+<% end %>
