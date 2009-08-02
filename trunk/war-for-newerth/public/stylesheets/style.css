@@ -236,3 +236,9 @@ div.news-comments {
 div.comment > * { padding: 5px 10px; }
 div.comment { border-bottom: 2px solid silver; }
 div.comment-title { border-bottom: 1px dotted silver; }
+
+div#frame-container {
+    overflow: hidden;
+    border:1px solid #ca5c01;
+    margin: 0px auto;
+}

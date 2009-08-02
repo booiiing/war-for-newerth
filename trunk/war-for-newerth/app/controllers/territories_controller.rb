@@ -28,7 +28,7 @@ class TerritoriesController < ApplicationController
       end
       format.html # show.html.erb
       format.xml  { render :xml => @territory }
-      format.js { render :template => "territories/show", :layout => false}
+      format.js { render :partial => "territories/info" }
     end
   end
 

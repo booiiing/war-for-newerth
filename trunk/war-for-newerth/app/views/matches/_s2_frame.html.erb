@@ -1,0 +1,20 @@
+<div id="frame-container"
+     style="height:<%= viewport_size[1] -%>px; width:<%= viewport_size[0] -%>px;">
+  <script>
+    function onLoadIframe(){
+      $('frame-container').scrollTop=<%= offset[1]-%>;
+      $('frame-container').scrollLeft=<%= offset[0] -%>;
+      if(!loc) {
+        loc=$('admin-frame').contentWindow.location;
+        checkIframeRedirected();
+      }
+    }
+  </script>
+  <iframe frameborder="0"
+          id="admin-frame"
+          src="<%= url -%>"
+          width="<%= frame_size[0] -%>"
+          height="<%= frame_size[1] -%>"
+          scrolling="no"
+          onload="onLoadIframe();" ></iframe>
+</div>
