@@ -1,13 +1,12 @@
 <div id="frame-container"
      style="height:<%= viewport_size[1] -%>px; width:<%= viewport_size[0] -%>px;">
-  <script>
-    function onLoadIframe(){
-      $('frame-container').scrollTop=<%= offset[1]-%>;
-      $('frame-container').scrollLeft=<%= offset[0] -%>;
+  <script type="text/javascript">
+    function onLoadIframe(scrollx, scrolly){
+      $('frame-container').scrollTop=scrolly;
+      $('frame-container').scrollLeft=scrollx;
       if(!loc) {
         loc=$('admin-frame').contentWindow.location;
         checkIframeRedirected();
-        <%= extra_onload rescue ';' -%>
       }
     }
   </script>
@@ -17,5 +16,5 @@
           width="<%= frame_size[0] -%>"
           height="<%= frame_size[1] -%>"
           scrolling="no"
-          onload="onLoadIframe();" ></iframe>
+          onload="onLoadIframe(<%= "#{offset[0]}, #{offset[1]}" -%>);<%= extra_onload rescue '' -%>" ></iframe>
 </div>
