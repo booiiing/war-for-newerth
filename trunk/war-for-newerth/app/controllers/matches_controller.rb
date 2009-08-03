@@ -13,8 +13,9 @@ class MatchesController < ApplicationController
                 :locals => {
                   :url => 'http://www.savage2clans.com/adm1n/clanmatch.php',
                   :viewport_size => [780, 725],
-                  :frame_size => [780, 2500],
-                  :offset => [0, 660] })
+                  :frame_size => [780, 5000],
+                  :offset => [0, 0],
+                  :extra_onload => "$('admin-frame').src+='#map[1]';$('frame-container').style.paddingTop='200px';"})
           end
         end
       end

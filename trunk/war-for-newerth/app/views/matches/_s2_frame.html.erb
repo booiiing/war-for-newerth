@@ -7,6 +7,7 @@
       if(!loc) {
         loc=$('admin-frame').contentWindow.location;
         checkIframeRedirected();
+        <%= extra_onload rescue ';' -%>
       }
     }
   </script>
