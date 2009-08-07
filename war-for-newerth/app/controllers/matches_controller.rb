@@ -17,7 +17,9 @@ class MatchesController < ApplicationController
                   :viewport_size => [780, 420],
                   :frame_size => [780, 5000],
                   :offset => [0, 0],
-                  :extra_onload => "setTimeout(function(){$('frame-container').style.paddingTop='200px'}, 500);console.debug('load')"})
+                  :extra_onload => "setTimeout(function(){$('frame-container').style.paddingTop='200px';" +
+                                                          "window.scrollTo(0, 0);}," +
+                                   " 500);console.debug('load');"})
           end
         end
       end
