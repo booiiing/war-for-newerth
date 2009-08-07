@@ -1,4 +1,5 @@
 class TerritoriesController < ApplicationController
+  before_filter :gtfo, :except => [:index, :show]
   # this filter create an updated set of maps when the territories are modified
   after_filter :generate_images, :only => [:update, :destroy]
 
@@ -36,7 +37,6 @@ class TerritoriesController < ApplicationController
   # GET /territories/new.xml
   def new
     @territory = Territory.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @territory }
@@ -119,7 +119,7 @@ class TerritoriesController < ApplicationController
   # DELETE /territories/1.xml
   def destroy
     @territory = Territory.find(params[:id])
-    @territory.destroy    
+    @territory.destroy
     respond_to do |format|
       format.html { redirect_to(territories_url) }
       format.xml  { head :ok }
@@ -172,6 +172,13 @@ class TerritoriesController < ApplicationController
     gc.draw(canvas)
     canvas.write("#{RAILS_ROOT}/public/images/map/base.jpg"){ self.quality = 95 } # TODO tweak the quality
 
+    true
+  end
+
+  def gtfo
+    unless current_user and current_user.is_admin?
+      redirect_to :root
+    end
     true
   end
 
