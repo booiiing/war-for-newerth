@@ -2,7 +2,9 @@ class MatchesController < ApplicationController
   # GET /match/new
   # GET /match/new.xml
   def new
+    @territory = @clan = nil
     @territory = Territory.find params[:territory] if params[:territory]
+    @clan = @territory.clan unless @territory.nil?
     respond_to do |format|
       format.html # new.html.erb
       format.js do
