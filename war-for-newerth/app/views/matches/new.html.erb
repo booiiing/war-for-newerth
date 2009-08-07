@@ -17,7 +17,7 @@ function checkIframeRedirected(){
 <p>So, now what?</p>
 <p>
   Now you have to arrange a battle with
-  <%= @territory.nil? ? 'the current owners' : link_to(@territory.clan.name, clan_path(@territory.clan)) %>
+  <%= @clan.nil? ? 'the current owners' : link_to(@clan.name, clan_path(@clan)) %>
   over the control of <%= @territory.nil? ? 'the territory' : "<strong>#{@territory.name}</strong>" %>.
   You have <strong>three</strong> options to do so:
 </p>
