@@ -27,14 +27,36 @@
 <% border 'border3' do %>
 <% form_for(@clan) do |f| %>
   <%= f.error_messages %>
-
+  <span class="note">The name of your clan</span>
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name %><br/>
     <%= f.text_field :name %>
   </p>
+  <span class="note">The tag that your clanmates wear on their names</span>
   <p>
     <%= f.label :tag %><br />
     <%= f.text_field :tag %>
+  </p>
+  <span class="note">
+    The clan page at <%= link_to 'savage2clans.com', 'http://savage2clans.com' %>
+  </span>
+  <p>
+    <%= f.label :official_url %><br />
+    <%= f.text_field :official_url %>
+    <%= observe_field 'clan_official_url',
+                      :frequency => 0.25,
+                      :url => {:controller => :clans, :action => :new},
+                      :loading => "$('clan_img').src='#{image_path 'loading.gif'}'",
+                      :failure => "$('clan_img').src='#{image_path 'empty_logo.png'}'",
+                      :with => 'url'  %>
+    <%= image_tag 'empty_logo.png', :id => 'clan_img', :width => "32", :alt=>'Clan Logo', :title => 'Clan Logo' %>
+  </p>
+  <span class="note">
+    Your clan forums or personal site
+  </span>
+  <p>
+    <%= f.label :sencondary_url %><br />
+    <%= f.text_field :sencondary_url %>
   </p>
   <p>
     <%= f.label :color %><br />

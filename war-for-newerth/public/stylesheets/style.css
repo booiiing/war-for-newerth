@@ -242,3 +242,6 @@ div#frame-container {
     border:1px solid #ca5c01;
     margin: 0px auto;
 }
+
+form span.note { float:right; font-size: xx-small}
+img#clan_img { vertical-align: top; }
