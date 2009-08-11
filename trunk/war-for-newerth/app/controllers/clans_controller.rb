@@ -29,6 +29,20 @@ class ClansController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @clan }
+      format.js do
+        url = params[:url]
+        url = "http://" + url unless url.start_with? "http://"
+        
+        clan_name = Clan.get_clan_name(url)
+        if clan_name
+          render :update do |page|
+            page[:clan_img].src = "http://www.savage2clans.com/pubsite/clan_img/#{clan_name}_32.png"
+            page[:clan_official_url].value = url
+          end
+        else
+          render :text=>'oh snap!', :status => 418
+        end
+      end
     end
   end
 
@@ -79,7 +93,7 @@ class ClansController < ApplicationController
   def destroy
     @clan = Clan.find(params[:id])
     # TODO prevent unauthorized clan removing (admin or clan admin?)
-    @clan.destroy
+    @clan.destroy if current_user and current_user.clan == @clan
 
     respond_to do |format|
       format.html { redirect_to(clans_url) }

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090630192501) do
+ActiveRecord::Schema.define(:version => 20090811144844) do
 
   create_table "alliances", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(:version => 20090630192501) do
     t.datetime "updated_at"
     t.string   "color"
     t.binary   "image"
+    t.string   "official_url"
+    t.string   "sencondary_url"
   end
 
   create_table "clans_alliances", :id => false, :force => true do |t|

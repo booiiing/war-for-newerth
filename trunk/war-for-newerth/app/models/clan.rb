@@ -30,4 +30,18 @@ class Clan < ActiveRecord::Base
     return [0, 0, 0] unless self.color
     return [self.color[1..2].hex, self.color[3..4].hex, self.color[5..6].hex]
   end
+
+  def get_real_name
+    Clan.get_clan_name(official_url) || name
+  end
+
+  def self.get_clan_name url
+    rt = false
+    require 'open-uri'
+    doc = Nokogiri::HTML((open(url) rescue ''))
+    doc.css('div#hello span.titlefont').each do |e|
+      rt = e.content.rstrip.gsub("Welcome to the Home of the ", "").gsub(" Clan!", "")
+    end
+    rt
+  end
 end
