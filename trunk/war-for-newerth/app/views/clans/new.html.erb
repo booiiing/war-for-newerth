@@ -44,7 +44,7 @@
     <%= f.label :official_url %><br />
     <%= f.text_field :official_url %>
     <%= observe_field 'clan_official_url',
-                      :frequency => 1,
+                      :frequency => 3,
                       :url => {:controller => :clans, :action => :new},
                       :loading => "$('clan_img').src='#{image_path 'loading.gif'}'",
                       :failure => "$('clan_img').src='#{image_path 'empty_logo.png'}'",
