@@ -54,13 +54,21 @@ class ClansController < ApplicationController
   # POST /clans
   # POST /clans.xml
   def create
+    redirect_back_or_default(:root) unless current_user and current_user.clan.nil?
+    url = params[:clan][:official_url]
+    url = "http://" + url unless url.start_with? "http://"
+    params[:clan][:official_url] = url
     @clan = Clan.new(params[:clan])
     # TODO check if the clan really exists in http://savage2clans.com/
     # TODO add clan manager role for users
-    current_user.clan = @clan if current_user.clan.nil? # clan creator should be in a clan
-    current_user.save!
+    current_user.clan = @clan # clan creator should be in a clan
+    success = current_user.save and @clan.save
+
+    if success
+      
+    end
     respond_to do |format|
-      if @clan.save
+      if success
         flash[:notice] = 'Clan was successfully created.'
         format.html { redirect_to(@clan) }
         format.xml  { render :xml => @clan, :status => :created, :location => @clan }
