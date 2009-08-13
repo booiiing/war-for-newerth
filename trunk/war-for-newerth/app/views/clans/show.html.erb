@@ -1,6 +1,9 @@
 <% crumbs "Show Clan information: #{@clan.name}" => clan_path(@clan) %>
 <% content_for(:title, 'Clan information') %>
 <p>
+  <%= image_tag @clan.image_filename if @clan.image_filename %>
+</p>
+<p>
   <b>Name:</b>
   <%=h @clan.name %> [<%=h @clan.tag %>]
 </p>
