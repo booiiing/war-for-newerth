@@ -59,6 +59,8 @@ class ClansController < ApplicationController
     url = "http://" + url unless url.start_with? "http://"
     params[:clan][:official_url] = url
     @clan = Clan.new(params[:clan])
+
+    @clan.fetch_images
     # TODO check if the clan really exists in http://savage2clans.com/
     # TODO add clan manager role for users
     current_user.clan = @clan # clan creator should be in a clan

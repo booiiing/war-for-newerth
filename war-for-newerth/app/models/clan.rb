@@ -35,12 +35,49 @@ class Clan < ActiveRecord::Base
     Clan.get_clan_name(official_url) || name
   end
 
+  def fetch_images!
+    require 'open-uri'
+    off_name = Clan.get_clan_name(official_url)
+    dir="#{RAILS_ROOT}/public/images/clans/#{name.underscore.parameterize('_')}"
+    FileUtils.mkdir_p dir
+
+    logger.debug "fetching #{"http://www.savage2clans.com/pubsite/clan_img/#{off_name}_128.png"}..."
+    img = open("#{dir}/128.png", 'wb')
+    img.write open("http://www.savage2clans.com/pubsite/clan_img/#{off_name}_128.png").read
+    img.close
+    logger.debug "done"
+
+    logger.debug "fetching #{"http://www.savage2clans.com/pubsite/clan_img/#{off_name}_32.png"}..."
+    img = open("#{dir}/32.png", 'wb')
+    img.write open("http://www.savage2clans.com/pubsite/clan_img/#{off_name}_32.png").read
+    img.close
+    logger.debug "done"
+    
+    logger.debug "fetching #{"http://www.savage2clans.com/pubsite/clan_img/#{off_name}_16.png"}..."
+    img = open("#{dir}/16.png", 'wb')
+    img.write open("http://www.savage2clans.com/pubsite/clan_img/#{off_name}_16.png").read
+    img.close
+    logger.debug "done"
+    
+    true
+  end
+
+  def image_filename size=32
+    file = "clans/#{name.underscore.parameterize('_')}/#{size}.png"
+    return false unless [128, 32, 16].include? size and
+                          FileTest.exists?("#{RAILS_ROOT}/public/images/#{file}")
+
+    file
+  end
+
   def self.get_clan_name url
     rt = false
     require 'open-uri'
+    logger.debug "opening #{url}"
     doc = Nokogiri::HTML((open(url) rescue ''))
     doc.css('div#hello span.titlefont').each do |e|
       rt = e.content.rstrip.gsub("Welcome to the Home of the ", "").gsub(" Clan!", "")
+      logger.debug "found! #{rt}"
     end
     rt
   end

@@ -164,10 +164,18 @@ class TerritoriesController < ApplicationController
       end
 
       if t.clan
-        gc.fill("rgb(#{t.clan.color_rgb.join(',')})")
-        gc.fill_opacity(1);
+        # draw the small icon for the clan if it exists
+        if t.clan.image_filename 16
+          gc.composite(t.position_x - 8, t.position_y - 8, 16, 16,
+            Magick::Image.read("#{RAILS_ROOT}/public/images/#{t.clan.image_filename(16)}").first)
+        else # or draw a circle of their color
+          gc.fill("rgb(#{t.clan.color_rgb.join(',')})")
+          gc.fill_opacity(1);
+          gc.circle(t.position_x, t.position_y, t.position_x + 5, t.position_y)
+        end
+      else
+        gc.circle(t.position_x, t.position_y, t.position_x + 5, t.position_y)
       end
-      gc.circle(t.position_x, t.position_y, t.position_x + 5, t.position_y)
     end
     gc.draw(canvas)
     canvas.write("#{RAILS_ROOT}/public/images/map/base.jpg"){ self.quality = 95 } # TODO tweak the quality
