@@ -1,0 +1,24 @@
+## Current state ##
+
+There is a prelimiary version uploaded at http://xflx.gf-soft.net/ keep in mind that it's on its early stages of development and expect it to fail, be ugly or dont working at all.
+
+## General design / examples ##
+How the site should look?.
+
+A savage 2 league site: http://www.coilonline.org/
+
+The s2 clan site: http://www.savage2clans.com/
+
+
+## Use cases / sections ##
+Sections and what will they be used for.
+
+
+## Content ##
+Graphics, style examples and all the beautifull things.
+
+savage2-fansite-kit: http://savage2.com/en/fansitekit.php
+
+a map-generator (until we get a real map): http://greenfish.extra.hu/downloads.php
+
+general purpose resources http://openclipart.org/

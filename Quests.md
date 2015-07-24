@@ -1,0 +1,8 @@
+#Ingame Quests for clans
+
+# Is that possible? #
+
+I saw this thread http://forums.savage2.com/showthread.php?t=17276
+and that sounds an awesome idea.
+Im pretty sure it possible to make custom maps with quests for clans to make it.
+Lets say like Epic bosses etc, when clan have to go trough huge map full with NPCs and kill the final boss for achivment.

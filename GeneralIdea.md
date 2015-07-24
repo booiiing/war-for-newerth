@@ -1,0 +1,27 @@
+# War For Territories #
+
+> The main idea of w4t is to make the game clan driven, also it have 4 stages. This mod should be build and developed as official mod, without changing anything in-game or in current clan system untill stage 2. That's only draft, finished version will have expanded explanations about benefits of the system and each stage by itslef.
+
+# Details #
+
+## Stage 1. The Tribes: ##
+> World of Newerth is devided in a lot of small pieces, small tribes(clans) controlling territories. Once a while they fight each-other to gain control of new territories. This implemented as clan-wars(CW), as we know it today. On the site of w4t clan X chooses to attack their neigberhood clan Y. Clan X choose 3 options of an area they want to attack and time.  Clan X sending request to clan Y. Clan Y accept their fight while select one of the times and maps from X's list, also clan Y choose which side they gonna fight. On the day of the fight clans reciving in-game notification 2 hours before the fight. Well, it's all exactly the way we know it today. Only difference is the win/loose report on clan system will change the clan allocation on Newerth map.
+> Now about the map; The map could be static and already divided in territories. That means that clans will receive a territory at the beginning from where they'll be able to expand. The only trouble we can encounter here is amount of clans. We won't be able to enlarge the territories in any way. Second idea of the map is dynamic map, which means that we will add new pieces of the map as needed. The good thing - almost unlimited space. Third idea for map: Fully virtual map, nothing to draw so no place limitation. The bad thing - virtual territory will still virtual without "color" of the clan on it, that's not exactly the territory u can fight for.
+### Prerequests: ###
+> Us: Registration, DB, dynamic map system(imo we should go for the second map style).
+
+> S2: We need access to clansystem CW reservation and ability to read clan stats.
+
+## Stage 2. Alliances: ##
+> As some of us remember from the history of Newerth humanity crawled in ashes after their selfdestruction, while beasts rised. After some time tribes of humans started to fill the earth of Newerth again with small tribes while fighting the beasts. Some of them realized that easier to stay alive as large teams so they made an alliances. This stage of w4t assumes that we have enough clans ( i think about number 20+... but of course as more clans - more fun). At this stage the clans can make an alliances that will provide them few things; First of all the territories. Allied territory can be used to attack clan that isn't close to your borders but won't provide this opportunity to enemy clan . So alliances will have a feature here. Also alliance will be able to attack another alliance which will allow (or require) from every clan send his fighters into a fight. At this point of the game we'll need a minor changes to clansystem.
+### Prerequests: ###
+> Us: working stage 1 with enough clans/players for stage2.
+
+> S2: Minor changes on clansystem rules, eg: few new maps, ability to make 3 rounds game, ability to allow players from different clans enter CW(alliances copability), etc.
+
+## Stage 3. The Gathering: ##
+> This is a little bit crazy idea and might not work :) I'm sticking up with the original history of Newerth and here is the point when Maliken comes. He gathering all men of Newerth into a Legion of man blablabla. --------------------------------------------later-------------------
+
+
+
+---

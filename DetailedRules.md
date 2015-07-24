@@ -1,0 +1,43 @@
+# Rules for the War #
+
+  * Attack frequency
+> Each clan can attack any territory with at least one side in common with a territory that they control, once per day. Each clan have only 1 round to defend/attack the ground but, they should have a chance to fight it back. We have to implement a comeback system that will allow to fight this territory abck within a hour.
+
+  * Simultaneous attacks
+> A Clan with more than one territory under attack can defer a match as much as one week between matches at their will, or an undefined amount of time if both, the attacker and the defender agree. The system must provide a mechanism to allow this communications between clans.
+
+
+  * Match deadline
+> Once a match is scheduled, any team must notify its absence at least two hours before the match. Failing to do this implies a free victory for the other team. The system must provide an automatic notification mechanism to remind clan managers to attend the match or notify their absence.
+
+# Rules for each Battle #
+
+  * time for matches
+    * minimum time (to allow teams to prepare for the match)
+> > Each match should be announced with enough time for both teams to prepare a roster (days?). This time starts to count after the attacked team recieves an attack notification.
+
+  * maximum time
+
+> The attacked team will be able delay the match for one week without agreement or for longer times if both clans agree. The system must provide a mechanism to allow clan managers to comunicate this decisions to other clans.
+
+  * map-choice
+> A fixed map will be choosen based on the territory being attacked.
+
+
+---
+
+Fight schema: Idea for "last ground" fight.
+Original clansystem is good for the "regular" fights.
+But, in fight for territories clans should and will claim grounds that already belongs to another clans. In case of clan attacking another clan which have the last piece of grounds the fight shouldn't be so easy as fights before (1 map for CW). The attacking clan will have to attack the enemy on custom maps, and the CW will be 3 rounds.
+(that reminds me that we need a mapmakers)
+The idea here is 3 maps which represent a path to main SH on the last piece of ground. The first and second maps could be original, but the third one is mod in which the main point for attackers is to destroy the SH with lack of resources but with more advanced tech from begining of the round.Defenders should defend their base for some amount of time, like 30 minutes or destroying enemies.
+
+Here we getting some different situations.
+  1. Attackers win all rounds - win.
+  1. Attackers wins first/second round + destroying SH - win
+  1. Attackers wins first/second round but kicked from SH - loose
+  1. Attackers loose both rounds but win SH - noone gets nothing.
+  1. Attackers loose 2 rounds loosing at SH - The kicked out of enemy grounds and loose the territory they were attacked from.
+  1. Attackers loose both fights and loosing their SH (that shouldn't be easy to defenders) - They loose the ground they attacked from + one of the territories near.
+
+That's way it'll be harder to kick clans out of their grounds, but keep it still possible.
